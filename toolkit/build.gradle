@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdk
+        versionCode Versions.releaseVersionCode
+        versionName Versions.releaseVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        file('src/main/res-screens')
+                .listFiles()
+                .each { main.res.srcDirs += it.path }
+
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation TestDependencies.espressoContrib
+    api ProjectDependencies.rxBinding, {
+        exclude group: 'io.reactivex.rxjava2'
+        exclude group: 'com.android.support'
+        exclude group: 'org.jetbrains.kotlin'
+    }
+    api ProjectDependencies.appcompat
+    api ProjectDependencies.design
+    api ProjectDependencies.recyclerview
+    api ProjectDependencies.constraintlayout
+    api ProjectDependencies.rxStream
+    api ProjectDependencies.rxJava
+    api ProjectDependencies.rxAndroid, {
+        exclude group: 'io.reactivex.rxjava2'
+    }
+    api ProjectDependencies.kotlin
+}

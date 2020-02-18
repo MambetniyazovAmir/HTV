@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/water_blue</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="main_window_background">@color/white</color>
+
+    <color name="green">#2bc20e</color>
+
+    <color name="water_blue">#1b79d5</color>
+    <color name="water_blue_alpha">#951b79d5</color>
+    <color name="white">#FFF</color>
+    <color name="fb_dark">#3b5998</color>
+    <color name="fb_light">#8b9dc3</color>
+    <color name="green_google">#3cba54</color>
+    <color name="red">#db3236</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="cloudy_blue">#ccd3dd</color>
+</resources>

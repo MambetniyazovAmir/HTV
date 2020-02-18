@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">KPI Sales</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="error.header">Error</string>
+    <string name="error.title">Error</string>
+    <string name="mailto.not.found">Приложение не найдено на устройстве</string>
+    <string name="info_err_msg_no_call">Нет приложения для осуществления звонка</string>
+
+    <string name="error.connection.fail">Отсутствует интернет соединение</string>
+    <string name="alert.action.retry">Повторить</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet</string>
+    <string name="todo">Lorem ipsum dolor sit amet</string>
+    <string name="lorem_ipsum_mid">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed risus</string>
+    <string name="lorem_ipsum_large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed risus ligula, dignissim at efficitur non, lobortis vel ligula. \n\nMauris iaculis ultricies rutrum. Cras eleifend, lectus ut bibendum faucibus, velit nibh ultricies nunc, ultricies auctor velit sem eget justo. Cras viverra tortor dolor, eget auctor mi convallis eget. \n\nFusce tempor, lectus ac finibus facilisis, leo dui fringilla nibh, vel volutpat mauris sem sit amet risus. Sed a feugiat ipsum.</string>
+
+
+</resources>

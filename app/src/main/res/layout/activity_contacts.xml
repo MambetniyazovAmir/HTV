@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.contacts.ContactsActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".ui.main.contacts.ContactsActivity"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:src="@drawable/logo_hamkor"
+                android:layout_marginTop="16dp"
+                />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_title_1"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_content_1"
+                android:textColor="#414141"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_title_2"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_content_2"
+                android:textColor="#414141"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_title_3"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_content_3"
+                android:textColor="#414141"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_title_4"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_content_4"
+                android:textColor="#414141"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_title_5"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_content_5"
+                android:textColor="#414141"
+                android:textSize="16dp"
+                android:gravity="center"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_title_6"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_title_7"
+                android:textColor="#212121"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="24dp"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_content_6"
+                android:textColor="#414141"
+                android:textSize="16dp"
+                android:gravity="center"/>
+    </LinearLayout>
+</ScrollView>
