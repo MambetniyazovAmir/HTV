@@ -24,7 +24,24 @@
     <string name="user_arg"> Shartnoma taklifi </string>
         
     <string name="wi_fi_free"> WI-FI BEPUL </string>
-        
+
+    <string name="login">Kirish</string>
+
+    <string name="streetAddress">Kocha yoki kvartal</string>
+
+    <string name="houseNumber">Uy</string>
+
+    <string name="homeAddress">Xona</string>
+
+    <string name="cancelTxt">Bekor qilish</string>
+
+    <string name="okTxt">Ok</string>
+    <string name="description" >Summa:</string>
+    <string name="date">Tolov vaqti:</string>
+    <string name="month">Oyi uchun</string>
+
+    <string name="language">Til</string>
+
     <string name="id_user"> Dasturning identifikatori </string>
         
     <string name="forgot_password"> Parolingizni unutdingizmi? </string>
