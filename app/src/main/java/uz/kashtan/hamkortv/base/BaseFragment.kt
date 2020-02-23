@@ -1,5 +1,7 @@
 package uz.kashtan.hamkortv.base
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,4 +19,5 @@ abstract class BaseFragment: Fragment(){
         super.onViewCreated(view, savedInstanceState)
         init(savedInstanceState)
     }
+
 }

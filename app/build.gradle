@@ -39,7 +39,7 @@ android {
 
 dependencies {
     implementation project(':toolkit')
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation ProjectDependencies.appcompat
     implementation ProjectDependencies.kotlin
     implementation ProjectDependencies.kotlinKtx
@@ -47,7 +47,10 @@ dependencies {
     implementation ProjectDependencies.recyclerview
     implementation ProjectDependencies.lifecycle
     implementation ProjectDependencies.lifecycleReactivestreams
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt ProjectDependencies.roomCompiler
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
     implementation ProjectDependencies.room
     implementation ProjectDependencies.roomRx
     implementation ProjectDependencies.rxKotlin
@@ -55,4 +58,5 @@ dependencies {
     implementation ProjectDependencies.rxAndroid
     implementation ProjectDependencies.multidex
     implementation ProjectDependencies.gson
+    implementation files('libs/ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar')
 }

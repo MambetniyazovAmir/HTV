@@ -12,4 +12,5 @@ class AreaActivity: BaseActivity(){
         supportActionBar?.title = getString(R.string.coverage_area)
         enableToolbarBackButton()
     }
+
 }
