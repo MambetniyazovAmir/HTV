@@ -76,11 +76,11 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun extractDataFromXmlResponse(envelope: SoapSerializationEnvelope): List<HistoryOfPaymentsModel> {
-        val soapObject = envelope.response as? SoapObject
+        val soapObject = envelope.response as SoapObject
         val historyOfPaymentsList: MutableList<HistoryOfPaymentsModel> = arrayListOf()
         val size = soapObject.propertyCount
         for (item in 0 until size) {
-            val refusal = soapObject?.getProperty(item) as SoapObject
+            val refusal = soapObject.getProperty(item) as SoapObject
             val model = HistoryOfPaymentsModel(
                 item + 1,
                 refusal.getProperty("Month").toString(),
