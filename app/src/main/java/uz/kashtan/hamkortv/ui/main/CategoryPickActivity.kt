@@ -1,7 +1,6 @@
 package uz.kashtan.hamkortv.ui.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.app.basemodule.extensions.onClick
 import kotlinx.android.synthetic.main.activity_main.*
@@ -37,7 +36,9 @@ class CategoryPickActivity : BaseActivity() {
             llChannels,
             llOurQuality,
             llArea,
-            llWifiFree
+            llWifiFree,
+            llComplaints,
+            llLanguage
         ))
 
         llPersonal.onClick {
@@ -62,6 +63,9 @@ class CategoryPickActivity : BaseActivity() {
             startActivity(Intent(this, OurQualityActivity::class.java))
         }
 
+        llLanguage.onClick {
+            startActivity(Intent(this, IntroActivity::class.java))
+        }
 
         llArea.onClick {
             startActivity(Intent(this, AreaActivity::class.java))

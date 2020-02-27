@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uz.kashtan.hamkortv" >
+    package="uz.kashtan.hamkortv">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".HamkorTvApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".HamkorTvApp"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".ui.main.CategoryPickActivity" >
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.main.login.LoginActivity"></activity>
+        <activity android:name=".ui.main.CategoryPickActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.intro.IntroActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/IntroPageActivity"
-                >
-
-        </activity>
-        <activity android:name=".ui.main.user.UserRegistrationActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.main.contacts.ContactsActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.main.licenses.LicensesActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.main.agrum.AgrumentActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.main.channels.ChannelsListActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.main.ourquality.OurQualityActivity"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.main.area.AreaActivity"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.intro.IntroActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IntroPageActivity"></activity>
+        <activity
+            android:name=".ui.main.user.UserRegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.contacts.ContactsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.licenses.LicensesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.agrum.AgrumentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.channels.ChannelsListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.ourquality.OurQualityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.area.AreaActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

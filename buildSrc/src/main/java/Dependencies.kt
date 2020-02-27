@@ -10,7 +10,7 @@ object Versions {
 
     val supportLibrary = "1.0.0"
     val design = "1.0.0-rc01"
-    val kotlin = "1.2.70"
+    val kotlin = "1.3.61"
     val service = "4.1.0"
     val dynamic = "1.0.0"
     val lifecycle = "2.0.0"

@@ -2,9 +2,11 @@ package uz.kashtan.hamkortv.base
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.utils.LocaleManager
 
 
@@ -31,6 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun enableToolbarBackButton() {
+        //supportActionBar?.setBackgroundDrawable(R.color.buttonColor)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

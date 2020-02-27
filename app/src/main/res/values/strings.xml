@@ -54,4 +54,10 @@
     <string name="agr_20">«15» ноября 2018г. г. Ташкент.</string>
     <string name="area">Зона охвата территории ЧП HAMKOR-TV</string>
     <string name="licenses_3">Официальный документ о регистрации юридического лицо</string>
+    <string name="dateOfPayment">Дата оплаты</string>
+    <string name="forMonth">За</string>
+    <string name="value">Сумма</string>
+    <string name="auth">Авторизация</string>
+    <string name="language">Язык</string>
+    <string name="complaints">Жалобы и предложения</string>
 </resources>

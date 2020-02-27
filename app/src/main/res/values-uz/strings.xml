@@ -27,6 +27,12 @@
         
     <string name="id_user"> Dasturning identifikatori </string>
         
+    <string name="value">Summa</string>
+
+    <string name="auth">Kirish</string>
+
+    <string name="language">Til</string>
+
     <string name="forgot_password"> Parolingizni unutdingizmi? </string>
         
     <string name="registration"> Ro\'yxatga olish </string>
