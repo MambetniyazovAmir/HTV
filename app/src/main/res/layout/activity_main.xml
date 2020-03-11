@@ -236,6 +236,34 @@
                 android:textSize="16dp" />
         </LinearLayout>
 
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llRequest"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="75dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:background="@drawable/item_frame"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:src="@drawable/ic_contact_phone_black_24dp"-->
+<!--                android:tint="@color/colorAccent" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginLeft="24dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="@string/request"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:textColor="#212121"-->
+<!--                android:textSize="16dp" />-->
+<!--        </LinearLayout>-->
+
         <LinearLayout
             android:id="@+id/llWifiFree"
             android:layout_width="match_parent"
@@ -264,33 +292,33 @@
                 android:textSize="16dp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llComplaints"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/item_frame"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/llComplaints"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="75dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:background="@drawable/item_frame"-->
+<!--            android:orientation="horizontal">-->
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="30dp"
-                android:src="@drawable/ic_comment_black_24dp"
-                android:tint="@color/colorAccent" />
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:src="@drawable/ic_comment_black_24dp"-->
+<!--                android:tint="@color/colorAccent" />-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="24dp"
-                android:gravity="center_vertical"
-                android:text="@string/complaints"
-                android:textAllCaps="true"
-                android:textColor="#212121"
-                android:textSize="16dp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginLeft="24dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="@string/complaints"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:textColor="#212121"-->
+<!--                android:textSize="16dp" />-->
+<!--        </LinearLayout>-->
 
 
         <LinearLayout

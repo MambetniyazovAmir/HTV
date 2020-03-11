@@ -14,7 +14,7 @@
     <string name="wi_fi_free">WI-FI FREE</string>
     <string name="pick_adress">Выбрать Адрес</string>
     <string name="id_user">ID из программы</string>
-    <string name="forgot_password">Забыли пароль ?</string>
+    <string name="forgot_password">Забыли ID ?</string>
     <string name="enter">Войти</string>
     <string name="registration">Регистрация</string>
     <string name="contact_title_1">Адрес кассы ЧП «НАМКОR-TV»</string>
@@ -54,10 +54,20 @@
     <string name="agr_20">«15» ноября 2018г. г. Ташкент.</string>
     <string name="area">Зона охвата территории ЧП HAMKOR-TV</string>
     <string name="licenses_3">Официальный документ о регистрации юридического лицо</string>
-    <string name="dateOfPayment">Дата оплаты</string>
-    <string name="forMonth">За</string>
     <string name="value">Сумма</string>
     <string name="auth">Авторизация</string>
     <string name="language">Язык</string>
+    <string name="forMonth">За</string>
+    <string name="dateOfPayment">Дата оплаты</string>
     <string name="complaints">Жалобы и предложения</string>
+    <string name="send">Отправить</string>
+    <string name="request">Заявки</string>
+    <string name="user_page">Личный кабинет</string>
+    <string name="theme">Тема</string>
+    <string name="messageText">Текст</string>
+    <string name="offers">Заявки</string>
+    <string name="payments">Оплата</string>
+    <string name="streetAddress">Квартал</string>
+    <string name="houseNumber">Дом</string>
+    <string name="homeAddress">Квартира</string>
 </resources>

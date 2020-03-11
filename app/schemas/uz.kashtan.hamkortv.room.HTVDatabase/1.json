@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fa8989128af5e1f0169a40a389a59e38",
+    "identityHash": "1b2cc829878eb380befbfc15365b233c",
     "entities": [
       {
         "tableName": "channels",
@@ -38,7 +38,7 @@
       },
       {
         "tableName": "auth",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `code` TEXT NOT NULL, `codeInfo` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `code` TEXT NOT NULL, `codeInfo` TEXT NOT NULL, `message` TEXT NOT NULL, `name` TEXT NOT NULL, `photo` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -63,6 +63,18 @@
             "columnName": "message",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photo",
+            "columnName": "photo",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -76,7 +88,7 @@
       },
       {
         "tableName": "login",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `code` TEXT NOT NULL, `dateOfTime` TEXT NOT NULL, `message` TEXT NOT NULL, `month` TEXT NOT NULL, `sum` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `code` TEXT NOT NULL, `dateOfTime` TEXT NOT NULL, `message` TEXT NOT NULL, `month` TEXT NOT NULL, `sum` TEXT NOT NULL, `color` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -113,6 +125,12 @@
             "columnName": "sum",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -128,7 +146,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fa8989128af5e1f0169a40a389a59e38')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1b2cc829878eb380befbfc15365b233c')"
     ]
   }
 }

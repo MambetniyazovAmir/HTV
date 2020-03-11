@@ -11,6 +11,7 @@ import uz.kashtan.hamkortv.ui.intro.IntroActivity
 import uz.kashtan.hamkortv.ui.main.agrum.AgrumentActivity
 import uz.kashtan.hamkortv.ui.main.area.AreaActivity
 import uz.kashtan.hamkortv.ui.main.channels.ChannelsListActivity
+import uz.kashtan.hamkortv.ui.main.complaint.ComplaintActivity
 import uz.kashtan.hamkortv.ui.main.contacts.ContactsActivity
 import uz.kashtan.hamkortv.ui.main.licenses.LicensesActivity
 import uz.kashtan.hamkortv.ui.main.ourquality.OurQualityActivity
@@ -37,16 +38,17 @@ class CategoryPickActivity : BaseActivity() {
             llOurQuality,
             llArea,
             llWifiFree,
-            llComplaints,
             llLanguage
         ))
 
         llPersonal.onClick {
             startActivity(Intent(this, UserRegistrationActivity::class.java))
         }
+
         llContants.onClick {
             startActivity(Intent(this, ContactsActivity::class.java))
         }
+
         llLicenses.onClick {
             startActivity(Intent(this, LicensesActivity::class.java))
         }
@@ -70,6 +72,10 @@ class CategoryPickActivity : BaseActivity() {
         llArea.onClick {
             startActivity(Intent(this, AreaActivity::class.java))
         }
+
+//        llComplaints.onClick {
+//            startActivity(Intent(this, ComplaintActivity::class.java))
+//        }
     }
 
 

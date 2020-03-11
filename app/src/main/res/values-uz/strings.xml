@@ -18,7 +18,23 @@
     <string name="pick_adress"> Manzilni tanlash </string>
         
     <string name="enter"> Kirish </string>
-        
+
+    <string name="forMonth">Oy</string>
+
+    <string name="streetAddress">Daha</string>
+    <string name="houseNumber">Uy</string>
+    <string name="homeAddress">Xonadon</string>
+
+    <string name="dateOfPayment">to\'lov sanasi</string>
+    <string name="complaints">Shikoyatlar va takliflar</string>
+    <string name="send">Yuborish</string>
+    <string name="request">Ilovalar</string>
+    <string name="user_page">Shaxsiy kabinet</string>
+    <string name="theme">Mavzu</string>
+    <string name="messageText">Matn</string>
+    <string name="offers">Ilovalar</string>
+    <string name="payments">To\'lov</string>
+
     <string name="accessable_chanel"> Mavjud kanallar </string>
         
     <string name="user_arg"> Shartnoma taklifi </string>
@@ -33,7 +49,7 @@
 
     <string name="language">Til</string>
 
-    <string name="forgot_password"> Parolingizni unutdingizmi? </string>
+    <string name="forgot_password"> IDni unutdingizmi? </string>
         
     <string name="registration"> Ro\'yxatga olish </string>
         

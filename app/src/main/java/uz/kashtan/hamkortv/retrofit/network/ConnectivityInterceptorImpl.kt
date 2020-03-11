@@ -1,12 +1,14 @@
-package uz.kashtan.hamkortv.retrofit
+package uz.kashtan.hamkortv.retrofit.network
 
 import android.content.Context
 import android.net.ConnectivityManager
 import okhttp3.Interceptor
 import okhttp3.Response
 import uz.kashtan.hamkortv.internal.NoConnectivityException
+import uz.kashtan.hamkortv.retrofit.network.ConnectivityInterceptor
 
-class ConnectivityInterceptorImpl(context: Context) : ConnectivityInterceptor {
+class ConnectivityInterceptorImpl(context: Context) :
+    ConnectivityInterceptor {
 
     private val appContext = context.applicationContext
 

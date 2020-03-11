@@ -1,4 +1,4 @@
-package uz.kashtan.hamkortv.retrofit
+package uz.kashtan.hamkortv.retrofit.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
@@ -8,9 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
-import uz.kashtan.hamkortv.room.models.AuthModel
-import uz.kashtan.hamkortv.room.models.ChannelsModel
-import uz.kashtan.hamkortv.room.models.LoginModel
+import uz.kashtan.hamkortv.room.models.*
 
 interface ApiService {
     @GET("Channels")
@@ -29,6 +27,19 @@ interface ApiService {
         @Query("Year") year: String,
         @Query("CodeClient") codeClient: String
     ): Deferred<List<LoginModel>>
+
+    @GET("Complaints")
+    fun getComplaintsAsync(
+        @Query("CodeClient") codeClient: String,
+        @Query("Theme") theme: String,
+        @Query("Text") text: String
+    ): Deferred<List<ComplaintModel>>
+
+    @GET("CreateRequest")
+    fun getRequestMessageAsync(
+        @Query("Theme") theme: String,
+        @Query("CodeClient") codeClient: String
+    ): Deferred<List<RequestModel>>
 
     companion object {
         operator fun invoke(

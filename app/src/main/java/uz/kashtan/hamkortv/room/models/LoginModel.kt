@@ -18,5 +18,7 @@ data class LoginModel(
     @SerializedName("Month")
     val month: String,
     @SerializedName("Sum")
-    val sum: String
+    val sum: String,
+    @SerializedName("Color")
+    val color: String
 )

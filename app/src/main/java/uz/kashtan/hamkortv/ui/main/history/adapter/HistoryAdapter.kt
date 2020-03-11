@@ -1,4 +1,4 @@
-package uz.kashtan.hamkortv.ui.main.login.adapter
+package uz.kashtan.hamkortv.ui.main.history.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

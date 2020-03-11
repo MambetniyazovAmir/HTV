@@ -1,9 +1,11 @@
-package uz.kashtan.hamkortv.retrofit
+package uz.kashtan.hamkortv.retrofit.network
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import uz.kashtan.hamkortv.internal.NoConnectivityException
+import uz.kashtan.hamkortv.retrofit.network.ApiService
+import uz.kashtan.hamkortv.retrofit.network.AuthNetworkDataSource
 import uz.kashtan.hamkortv.room.models.AuthModel
 
 class AuthNetworkDataSourceImpl(

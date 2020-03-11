@@ -1,4 +1,4 @@
-package uz.kashtan.hamkortv.retrofit
+package uz.kashtan.hamkortv.retrofit.network
 
 import androidx.lifecycle.LiveData
 import uz.kashtan.hamkortv.room.models.AuthModel

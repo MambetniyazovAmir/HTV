@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/standard_margin"
         android:backgroundTint="@color/buttonColor"
-        android:hint="Квартал"
+        android:hint="@string/streetAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/standard_margin"
         android:backgroundTint="@color/buttonColor"
-        android:hint="Дом"
+        android:hint="@string/houseNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/streetAddress" />
@@ -33,10 +33,21 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/standard_margin"
         android:backgroundTint="@color/buttonColor"
-        android:hint="Квартира"
+        android:hint="@string/homeAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/houseNumber" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/etUserId"-->
+    <!--        android:layout_width="@dimen/match_constraint"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="@dimen/standard_margin"-->
+    <!--        android:backgroundTint="@color/buttonColor"-->
+    <!--        android:hint="ID пользователя"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/homeAddress" />-->
 
     <TextView
         android:id="@+id/okBtn"

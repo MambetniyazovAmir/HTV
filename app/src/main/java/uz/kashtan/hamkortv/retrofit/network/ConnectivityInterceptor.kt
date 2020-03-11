@@ -1,4 +1,4 @@
-package uz.kashtan.hamkortv.retrofit
+package uz.kashtan.hamkortv.retrofit.network
 
 import okhttp3.Interceptor
 
