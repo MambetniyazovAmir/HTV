@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.offer.OfferActivity">
+
+    <ImageView
+        android:id="@+id/photoEmployee"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/standard_margin"
+        android:src="@drawable/ic_account_circle_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fioEmployee"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="64dp"
+        android:layout_margin="@dimen/standard_margin"
+        android:gravity="center_vertical"
+        android:text="Фамилия Имя Отчество"
+        android:textColor="@color/blackish"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintBottom_toBottomOf="@id/photoEmployee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/photoEmployee"
+        app:layout_constraintTop_toTopOf="@id/photoEmployee" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photoEmployee" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/etTheme"-->
+    <!--        android:layout_width="@dimen/match_constraint"-->
+    <!--        android:layout_height="64dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:hint="@string/theme"-->
+    <!--        android:paddingStart="@dimen/standard_margin"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/photoEmployee" />-->
+
+    <EditText
+        android:id="@+id/etTextMessage"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="@dimen/match_constraint"
+        android:backgroundTint="@color/white"
+        android:gravity="top"
+        android:hint="@string/messageText"
+        android:paddingStart="@dimen/standard_margin"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/tvSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line" />
+
+    <TextView
+        android:id="@+id/tvSend"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/buttonColor"
+        android:gravity="center"
+        android:text="@string/send"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
