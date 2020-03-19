@@ -70,4 +70,5 @@
     <string name="streetAddress">Квартал</string>
     <string name="houseNumber">Дом</string>
     <string name="homeAddress">Квартира</string>
+    <string name="register">Стать абонентом</string>
 </resources>

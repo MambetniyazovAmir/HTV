@@ -15,6 +15,7 @@ import uz.kashtan.hamkortv.ui.main.complaint.ComplaintActivity
 import uz.kashtan.hamkortv.ui.main.contacts.ContactsActivity
 import uz.kashtan.hamkortv.ui.main.licenses.LicensesActivity
 import uz.kashtan.hamkortv.ui.main.ourquality.OurQualityActivity
+import uz.kashtan.hamkortv.ui.main.register.RegisterActivity
 import uz.kashtan.hamkortv.ui.main.user.UserRegistrationActivity
 import uz.kashtan.hamkortv.utils.AnimationTemplateUtils
 
@@ -30,6 +31,7 @@ class CategoryPickActivity : BaseActivity() {
         }
         AnimationTemplateUtils.animateStepByStepVisible(arrayOf(
             llPersonal,
+            llRegister,
             llContants,
             llLicenses,
             llRate,
@@ -38,6 +40,7 @@ class CategoryPickActivity : BaseActivity() {
             llOurQuality,
             llArea,
             llWifiFree,
+            llCallback,
             llLanguage
         ))
 
@@ -73,10 +76,8 @@ class CategoryPickActivity : BaseActivity() {
             startActivity(Intent(this, AreaActivity::class.java))
         }
 
-//        llComplaints.onClick {
-//            startActivity(Intent(this, ComplaintActivity::class.java))
-//        }
+        llRegister.onClick {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
     }
-
-
 }

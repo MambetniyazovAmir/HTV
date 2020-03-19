@@ -1,30 +1,34 @@
 package uz.kashtan.hamkortv.retrofit.repository
 
 import androidx.lifecycle.LiveData
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import uz.kashtan.hamkortv.retrofit.network.AuthNetworkDataSource
-import uz.kashtan.hamkortv.room.dao.AuthDao
-import uz.kashtan.hamkortv.room.models.AuthModel
+import kotlinx.coroutines.withContext
+import uz.kashtan.hamkortv.retrofit.network.StreetNetworkDataSource
+import uz.kashtan.hamkortv.room.dao.StreetDao
+import uz.kashtan.hamkortv.room.models.StreetOrQuarter
 
 class HTVRepositoryImpl(
-    private val userData: AuthDao,
-    private val authNetworkDataSource: AuthNetworkDataSource
+    private val streetDao: StreetDao,
+    private val streetNetworkDataSource: StreetNetworkDataSource
 ) : HTVRepository {
 
     init {
-        authNetworkDataSource.downloadedAuth.observeForever { userData ->
-
+        streetNetworkDataSource.downloadedStreets.observeForever { streetData ->
+            persistFetchedStreetData(streetData)
         }
     }
 
-    override suspend fun getUserData(): LiveData<AuthModel> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private fun persistFetchedStreetData(streetData: List<StreetOrQuarter>) {
+        GlobalScope.launch(Dispatchers.IO) {
+            streetDao.insertToDb(streetData)
+        }
     }
 
-    private fun persistFetchedUserData(fetchedUserData: AuthModel){
-        GlobalScope.launch {
-
+    override suspend fun getStreet(): LiveData<List<StreetOrQuarter>> {
+        return withContext(Dispatchers.IO) {
+            return@withContext streetDao.getStreet()
         }
     }
 }

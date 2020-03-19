@@ -5,6 +5,15 @@
     android:layout_height="wrap_content"
     android:minWidth="280dp">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/streetAddress"
         android:layout_width="@dimen/match_constraint"
@@ -12,9 +21,10 @@
         android:layout_margin="@dimen/standard_margin"
         android:backgroundTint="@color/buttonColor"
         android:hint="@string/streetAddress"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/spinner" />
 
     <EditText
         android:id="@+id/houseNumber"
@@ -23,6 +33,7 @@
         android:layout_margin="@dimen/standard_margin"
         android:backgroundTint="@color/buttonColor"
         android:hint="@string/houseNumber"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/streetAddress" />
@@ -34,6 +45,7 @@
         android:layout_margin="@dimen/standard_margin"
         android:backgroundTint="@color/buttonColor"
         android:hint="@string/homeAddress"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/houseNumber" />

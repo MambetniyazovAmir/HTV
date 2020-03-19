@@ -5,13 +5,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import uz.kashtan.hamkortv.room.models.AuthModel
+import uz.kashtan.hamkortv.room.models.StreetOrQuarter
 
 @Dao
-interface AuthDao {
+interface StreetDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertToDb(authModel: List<AuthModel>)
+    fun insertToDb(streetOrQuarter: List<StreetOrQuarter>)
 
-    @Query("SELECT * FROM auth")
-    fun getAuth(): LiveData<AuthModel>
+    @Query("SELECT * FROM streetAndQuarter")
+    fun getStreet(): LiveData<List<StreetOrQuarter>>
 }

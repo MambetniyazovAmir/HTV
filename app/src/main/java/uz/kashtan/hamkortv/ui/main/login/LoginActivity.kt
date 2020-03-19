@@ -2,10 +2,16 @@ package uz.kashtan.hamkortv.ui.main.login
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.app.basemodule.extensions.onClick
 import kotlinx.android.synthetic.main.activity_login.*
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.base.BaseActivity
+import uz.kashtan.hamkortv.retrofit.network.ApiService
+import uz.kashtan.hamkortv.retrofit.network.AuthNetworkDataSourceImpl
+import uz.kashtan.hamkortv.retrofit.network.ConnectivityInterceptorImpl
+import uz.kashtan.hamkortv.retrofit.network.StreetNetworkDataSourceImpl
+import uz.kashtan.hamkortv.room.models.StreetOrQuarter
 import uz.kashtan.hamkortv.ui.main.complaint.ComplaintActivity
 import uz.kashtan.hamkortv.ui.main.history.HistoryActivity
 import uz.kashtan.hamkortv.ui.main.offer.OfferActivity
@@ -15,6 +21,8 @@ class LoginActivity : BaseActivity() {
 
     override val layoutResource: Int
         get() = R.layout.activity_login
+
+
 
     override fun init(savedInstanceState: Bundle?) {
         supportActionBar?.title = getString(R.string.user_page)
@@ -46,5 +54,10 @@ class LoginActivity : BaseActivity() {
             intent.putExtra("photo", photo)
             startActivity(intent)
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
     }
 }

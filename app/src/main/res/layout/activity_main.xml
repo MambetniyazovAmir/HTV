@@ -41,6 +41,34 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llRegister"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/item_frame"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/ic_person_add_black_24dp"
+                android:tint="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="24dp"
+                android:gravity="center_vertical"
+                android:text="@string/register"
+                android:textAllCaps="true"
+                android:textColor="#212121"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/llContants"
             android:layout_width="match_parent"
             android:layout_height="75dp"
@@ -319,7 +347,33 @@
 <!--                android:textColor="#212121"-->
 <!--                android:textSize="16dp" />-->
 <!--        </LinearLayout>-->
+        <LinearLayout
+            android:id="@+id/llCallback"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/item_frame"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/ic_location_on_black_24dp"
+                android:tint="@color/colorAccent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="24dp"
+                android:gravity="center_vertical"
+                android:text="Обратная связь"
+                android:textAllCaps="true"
+                android:textColor="#212121"
+                android:textSize="16dp" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llLanguage"

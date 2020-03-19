@@ -44,7 +44,7 @@ class UserRegistrationActivity : BaseActivity(), OnInputListener {
     private var requestCall = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val dialog = AddressDialog(this, codeClient, this, this)
+        val dialog = AddressDialog(this, this)
         apiService = ApiService(
             ConnectivityInterceptorImpl(this.applicationContext)
         )

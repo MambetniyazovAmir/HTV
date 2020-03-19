@@ -22,6 +22,9 @@ interface ApiService {
         @Query("ID") id: String
     ): Deferred<List<AuthModel>>
 
+    @GET("GetQuarters")
+    fun getQuartersAsync(): Deferred<List<StreetOrQuarter>>
+
     @GET("CreditStories")
     fun getLoginAsync(
         @Query("Year") year: String,
