@@ -109,7 +109,7 @@
 
             <TextView
                 android:id="@+id/tvChooseQuarter"
-                android:layout_width="0dp"
+                android:layout_width="310dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"

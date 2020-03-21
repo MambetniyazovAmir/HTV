@@ -23,7 +23,7 @@ interface ApiService {
     ): Deferred<List<AuthModel>>
 
     @GET("GetQuarters")
-    fun getQuartersAsync(): Deferred<List<StreetOrQuarter>>
+    fun getQuartersAsync(): Deferred<List<Quarter>>
 
     @GET("CreditStories")
     fun getLoginAsync(

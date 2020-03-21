@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.kashtan.hamkortv.retrofit.network.StreetNetworkDataSource
 import uz.kashtan.hamkortv.room.dao.StreetDao
-import uz.kashtan.hamkortv.room.models.StreetOrQuarter
+import uz.kashtan.hamkortv.room.models.Quarter
 
 class HTVRepositoryImpl(
     private val streetDao: StreetDao,
@@ -20,13 +20,13 @@ class HTVRepositoryImpl(
         }
     }
 
-    private fun persistFetchedStreetData(streetData: List<StreetOrQuarter>) {
+    private fun persistFetchedStreetData(streetData: List<Quarter>) {
         GlobalScope.launch(Dispatchers.IO) {
             streetDao.insertToDb(streetData)
         }
     }
 
-    override suspend fun getStreet(): LiveData<List<StreetOrQuarter>> {
+    override suspend fun getStreet(): LiveData<List<Quarter>> {
         return withContext(Dispatchers.IO) {
             return@withContext streetDao.getStreet()
         }

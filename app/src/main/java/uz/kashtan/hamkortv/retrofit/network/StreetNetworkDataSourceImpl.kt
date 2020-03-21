@@ -4,11 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import uz.kashtan.hamkortv.internal.NoConnectivityException
-import uz.kashtan.hamkortv.room.models.StreetOrQuarter
+import uz.kashtan.hamkortv.room.models.Quarter
 
 class StreetNetworkDataSourceImpl(private val apiService: ApiService) : StreetNetworkDataSource {
-    private val _downloadedStreets: MutableLiveData<List<StreetOrQuarter>> = MutableLiveData()
-    override val downloadedStreets: LiveData<List<StreetOrQuarter>>
+    private val _downloadedStreets: MutableLiveData<List<Quarter>> = MutableLiveData()
+    override val downloadedStreets: LiveData<List<Quarter>>
         get() = _downloadedStreets
 
     override suspend fun fetchStreets() {

@@ -6,4 +6,7 @@
     <dimen name="small_padding">8dp</dimen>
 
     <dimen name="item_height">56dp</dimen>
+    <dimen name="dialog_header_size">20sp</dimen>
+    <dimen name="margin_little">8dp</dimen>
+    <dimen name="dialog_min_width">280dp</dimen>
 </resources>
