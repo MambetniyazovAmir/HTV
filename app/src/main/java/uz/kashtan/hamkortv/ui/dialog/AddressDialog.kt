@@ -1,6 +1,5 @@
 package uz.kashtan.hamkortv.ui.dialog
 
-import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -8,20 +7,14 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.dialog_address.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.retrofit.network.ApiService
 import uz.kashtan.hamkortv.retrofit.network.ConnectivityInterceptorImpl
-import uz.kashtan.hamkortv.retrofit.network.LoginNetworkDataSourceImpl
 import uz.kashtan.hamkortv.retrofit.network.StreetNetworkDataSourceImpl
-import uz.kashtan.hamkortv.room.models.StreetOrQuarter
+import uz.kashtan.hamkortv.room.models.Quarter
 import uz.kashtan.hamkortv.ui.main.login.LoginActivity
-import java.security.acl.Owner
 
 
 class AddressDialog(
@@ -30,7 +23,7 @@ class AddressDialog(
 ) :
     Dialog(context) {
 
-    private var streets: List<StreetOrQuarter> = arrayListOf()
+    private var streets: List<Quarter> = arrayListOf()
     private lateinit var apiService: ApiService
     private lateinit var streetOrQuarter: StreetNetworkDataSourceImpl
 
