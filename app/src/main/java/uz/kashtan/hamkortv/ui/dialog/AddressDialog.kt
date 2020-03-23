@@ -40,47 +40,6 @@ class AddressDialog(
         apiService = ApiService(ConnectivityInterceptorImpl(context.applicationContext))
         streetOrQuarter = StreetNetworkDataSourceImpl(apiService)
 
-
-        val list = arrayOf(
-            "Bogishamol",
-            "Amir Temur",
-            "Yunusobod",
-            "Chilonzor",
-            "KOtlin",
-            "Java",
-            "Android studio",
-            "NewVersion",
-            "12435122",
-            "Bogishamol",
-            "Amir Temur",
-            "Yunusobod",
-            "Chilonzor",
-            "KOtlin",
-            "Java",
-            "Android studio",
-            "NewVersion",
-            "12435122"
-        )
-        val adapter = ArrayAdapter(context, R.layout.support_simple_spinner_dropdown_item, list)
-        spinner.adapter = adapter
-        streetOrQuarter.downloadedStreets.observe(LoginActivity(), Observer {
-            streets = it
-        })
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                Toast.makeText(context, list[position], Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Code to perform some actioan when nothing is selected
-            }
-        }
-
         okBtn.setOnClickListener {
             onInputListener.sendText(
                 streetAddress.text.toString(),

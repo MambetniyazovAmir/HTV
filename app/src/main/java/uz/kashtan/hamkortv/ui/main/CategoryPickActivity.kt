@@ -13,6 +13,7 @@ import uz.kashtan.hamkortv.ui.main.area.AreaActivity
 import uz.kashtan.hamkortv.ui.main.channels.ChannelsListActivity
 import uz.kashtan.hamkortv.ui.main.complaint.ComplaintActivity
 import uz.kashtan.hamkortv.ui.main.contacts.ContactsActivity
+import uz.kashtan.hamkortv.ui.main.feedback.FeedbackActivity
 import uz.kashtan.hamkortv.ui.main.licenses.LicensesActivity
 import uz.kashtan.hamkortv.ui.main.ourquality.OurQualityActivity
 import uz.kashtan.hamkortv.ui.main.register.RegisterActivity
@@ -78,6 +79,10 @@ class CategoryPickActivity : BaseActivity() {
 
         llRegister.onClick {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        llCallback.onClick {
+            startActivity(Intent(this, FeedbackActivity::class.java))
         }
     }
 }

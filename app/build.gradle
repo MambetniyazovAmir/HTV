@@ -73,4 +73,6 @@ dependencies {
 
     implementation "org.kodein.di:kodein-di-generic-jvm:5.2.0"
     implementation "org.kodein.di:kodein-di-framework-android-x:5.2.0"
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 }

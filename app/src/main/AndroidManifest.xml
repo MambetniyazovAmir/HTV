@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.main.register.RegisterActivity"></activity>
+        <activity android:name=".ui.main.feedback.FeedbackActivity"></activity>
+        <activity android:name=".ui.main.register.RegisterActivity" />
         <activity android:name=".ui.main.login.LoginActivity" />
         <activity android:name=".ui.main.offer.OfferActivity" />
         <activity android:name=".ui.main.complaint.ComplaintActivity" />
@@ -53,6 +54,10 @@
         <activity
             android:name=".ui.main.area.AreaActivity"
             android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDrrBoFV0ZExLMCrg68XJ--fSXHYNlpiMg" />
     </application>
 
 </manifest>

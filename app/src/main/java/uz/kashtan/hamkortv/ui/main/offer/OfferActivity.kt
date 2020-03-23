@@ -14,6 +14,7 @@ import uz.kashtan.hamkortv.base.BaseActivity
 import uz.kashtan.hamkortv.retrofit.network.ApiService
 import uz.kashtan.hamkortv.retrofit.network.ConnectivityInterceptorImpl
 import uz.kashtan.hamkortv.retrofit.network.RequestNetworkDataSourceImpl
+import uz.kashtan.hamkortv.ui.dialog.HelpDialog
 
 
 class OfferActivity : BaseActivity() {
@@ -51,5 +52,10 @@ class OfferActivity : BaseActivity() {
         val imageBytes = Base64.decode(photoStr, Base64.DEFAULT)
         val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
         photoEmployee.setImageBitmap(decodedImage)
+
+        info.setOnClickListener {
+            val dialog = HelpDialog(this)
+            dialog.show()
+        }
     }
 }

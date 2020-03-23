@@ -25,9 +25,21 @@
         android:textColor="@color/blackish"
         android:textSize="@dimen/text_size"
         app:layout_constraintBottom_toBottomOf="@id/photoEmployee"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/info"
         app:layout_constraintStart_toEndOf="@id/photoEmployee"
         app:layout_constraintTop_toTopOf="@id/photoEmployee" />
+
+    <ImageView
+        android:id="@+id/info"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fioEmployee"
+        app:layout_constraintTop_toTopOf="@id/fioEmployee"
+        app:layout_constraintBottom_toBottomOf="@id/fioEmployee"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_info_outline"
+        android:tint="@color/buttonColor"/>
 
     <View
         android:id="@+id/line"

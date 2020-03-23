@@ -71,4 +71,5 @@
     <string name="houseNumber">Дом</string>
     <string name="homeAddress">Квартира</string>
     <string name="register">Стать абонентом</string>
+    <string name="feedback">Обратная связь</string>
 </resources>
