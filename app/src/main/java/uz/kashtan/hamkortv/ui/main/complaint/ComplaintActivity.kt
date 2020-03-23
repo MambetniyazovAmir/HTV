@@ -42,7 +42,7 @@ class ComplaintActivity : BaseActivity() {
             GlobalScope.launch(Dispatchers.Main) {
                 complaintsNetworkDataSource.fetchComplaint(
                     codeClient,
-                    etTheme.text.toString(),
+                    "Жалоба",
                     etTextMessage.text.toString()
                 )
             }
