@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import uz.kashtan.hamkortv.internal.NoConnectivityException
 import uz.kashtan.hamkortv.room.models.Quarter
 
-class StreetNetworkDataSourceImpl(private val apiService: ApiService) : StreetNetworkDataSource {
+class QuarterNetworkDataSourceImpl(private val apiService: ApiService) : QuarterNetworkDataSource {
     private val _downloadedStreets: MutableLiveData<List<Quarter>> = MutableLiveData()
     override val downloadedStreets: LiveData<List<Quarter>>
         get() = _downloadedStreets

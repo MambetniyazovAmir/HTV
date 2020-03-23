@@ -8,10 +8,10 @@ import kotlinx.android.synthetic.main.dialog_quarter_list.*
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.room.models.Quarter
 
-class QuarterListDialog(private val mContext: Context) : Dialog(mContext) {
+class QuarterListDialog(private val mContext: Context, private val list: List<Quarter>) :
+    Dialog(mContext) {
 
     val adapter: QuarterListAdapter = QuarterListAdapter()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_quarter_list)
@@ -22,12 +22,6 @@ class QuarterListDialog(private val mContext: Context) : Dialog(mContext) {
     }
 
     private fun setData() {
-        val list: MutableList<Quarter> = arrayListOf()
-        for(i in 1..11) {
-            val quarter = Quarter(i, "$i${'A' + (i-1)%28}", "code")
-            list.add(quarter)
-        }
         adapter.setData(list)
     }
-
 }

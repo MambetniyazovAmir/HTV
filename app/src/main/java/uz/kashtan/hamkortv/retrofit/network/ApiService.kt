@@ -25,6 +25,9 @@ interface ApiService {
     @GET("GetQuarters")
     fun getQuartersAsync(): Deferred<List<Quarter>>
 
+    @GET("GetHouses")
+    fun getHousesAsync(): Deferred<List<House>>
+
     @GET("CreditStories")
     fun getLoginAsync(
         @Query("Year") year: String,

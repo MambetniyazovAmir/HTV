@@ -5,17 +5,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import uz.kashtan.hamkortv.retrofit.network.StreetNetworkDataSource
+import uz.kashtan.hamkortv.retrofit.network.QuarterNetworkDataSource
 import uz.kashtan.hamkortv.room.dao.StreetDao
 import uz.kashtan.hamkortv.room.models.Quarter
 
 class HTVRepositoryImpl(
     private val streetDao: StreetDao,
-    private val streetNetworkDataSource: StreetNetworkDataSource
+    private val quarterNetworkDataSource: QuarterNetworkDataSource
 ) : HTVRepository {
 
     init {
-        streetNetworkDataSource.downloadedStreets.observeForever { streetData ->
+        quarterNetworkDataSource.downloadedStreets.observeForever { streetData ->
             persistFetchedStreetData(streetData)
         }
     }
