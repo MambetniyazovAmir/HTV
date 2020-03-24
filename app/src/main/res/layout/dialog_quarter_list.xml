@@ -3,8 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="@dimen/dialog_min_width"
@@ -37,19 +36,23 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="@dimen/standard_margin"
             android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toTopOf="@id/okBtn"
-            app:layout_constraintTop_toBottomOf="@+id/flHeader"
+            app:layout_constraintBottom_toTopOf="@id/positiveButton"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/flHeader" />
 
         <TextView
-            android:id="@+id/cancelBtn"
+            android:id="@+id/negativeButton"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_marginEnd="@dimen/margin_little"
             android:layout_marginBottom="@dimen/margin_little"
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
             android:minWidth="64dp"
             android:paddingStart="@dimen/margin_little"
@@ -58,14 +61,17 @@
             android:textAllCaps="true"
             android:textColor="@color/buttonColor"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/okBtn" />
+            app:layout_constraintEnd_toStartOf="@+id/positiveButton" />
 
         <TextView
-            android:id="@+id/okBtn"
+            android:id="@+id/positiveButton"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_marginEnd="@dimen/margin_little"
             android:layout_marginBottom="@dimen/margin_little"
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
             android:minWidth="64dp"
             android:paddingStart="@dimen/margin_little"

@@ -6,9 +6,9 @@ import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.room.models.Quarter
 import uz.xsoft.lesson23pdp13.utils.inflate
 
-class QuarterListAdapter : RecyclerView.Adapter<QuarterViewHolder>(), QuarterSelectedListener {
+class QuarterListAdapter(private val itemSelectedListener: QuarterDialogItemClickListener) : RecyclerView.Adapter<QuarterViewHolder>(), QuarterDialogItemClickListener {
 
-    var selectedItemPosition: Int = -1
+    private var selectedItemPosition: Int = -1
     var models: List<Quarter> = arrayListOf()
 
     fun setData(models: List<Quarter>) {
@@ -28,7 +28,7 @@ class QuarterListAdapter : RecyclerView.Adapter<QuarterViewHolder>(), QuarterSel
         holder.populateModel(models[position], position, this)
     }
 
-    override fun quarterSelected(itemPosition: Int) {
+    override fun onItemClick(item: Quarter, itemPosition: Int) {
         if (selectedItemPosition != -1) {
             notifyItemChanged(selectedItemPosition)
             models[selectedItemPosition].isSelected = false
@@ -36,5 +36,6 @@ class QuarterListAdapter : RecyclerView.Adapter<QuarterViewHolder>(), QuarterSel
         selectedItemPosition = itemPosition
         models[selectedItemPosition].isSelected = true
         notifyItemChanged(selectedItemPosition)
+        itemSelectedListener.onItemClick(item, itemPosition)
     }
 }

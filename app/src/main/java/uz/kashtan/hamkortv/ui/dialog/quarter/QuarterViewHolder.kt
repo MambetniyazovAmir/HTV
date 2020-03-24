@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.item_quarter_list.view.*
 import uz.kashtan.hamkortv.room.models.Quarter
 
 class QuarterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun populateModel(model: Quarter, position: Int, selectListener: QuarterSelectedListener) {
+    fun populateModel(model: Quarter, position: Int, selectListener: QuarterDialogItemClickListener) {
         itemView.quarter.text = model.name
         if (model.isSelected) {
             itemView.outline.visibility = View.VISIBLE
@@ -14,7 +14,7 @@ class QuarterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             itemView.outline.visibility = View.GONE
         }
         itemView.setOnClickListener {
-            selectListener.quarterSelected(position)
+            selectListener.onItemClick(model, position)
         }
     }
 }

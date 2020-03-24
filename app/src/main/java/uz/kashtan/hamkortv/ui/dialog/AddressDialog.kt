@@ -27,7 +27,7 @@ class AddressDialog(
         apiService = ApiService(ConnectivityInterceptorImpl(context.applicationContext))
         streetOrQuarter = QuarterNetworkDataSourceImpl(apiService)
 
-        okBtn.setOnClickListener {
+        positiveButton.setOnClickListener {
             onInputListener.sendText(
                 streetAddress.text.toString(),
                 houseNumber.text.toString(),
@@ -35,7 +35,7 @@ class AddressDialog(
             )
             dismiss()
         }
-        cancelBtn.setOnClickListener {
+        negativeButton.setOnClickListener {
             dismiss()
         }
     }

@@ -14,6 +14,7 @@ class HouseNetworkDataSourceImpl(private val apiService: ApiService) : HouseNetw
     override suspend fun fetchHouses() {
         try {
             val fetched = apiService.getHousesAsync().await()
+            _downloadedHouses.postValue(fetched)
         } catch (e: NoConnectivityException){
             Log.e("Connectivity", "No Connectivity connection", e)
         }

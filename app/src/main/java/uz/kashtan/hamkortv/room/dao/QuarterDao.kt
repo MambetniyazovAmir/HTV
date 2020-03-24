@@ -8,10 +8,13 @@ import androidx.room.Query
 import uz.kashtan.hamkortv.room.models.Quarter
 
 @Dao
-interface StreetDao {
+interface QuarterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertToDb(streetOrQuarter: List<Quarter>)
 
-    @Query("SELECT * FROM streetAndQuarter")
-    fun getStreet(): LiveData<List<Quarter>>
+    @Query("SELECT * FROM quarter")
+    fun getAllQuarters(): LiveData<List<Quarter>>
+
+    @Query("SELECT * FROM quarter WHERE id = :id")
+    fun getQuarterById(id: Int)
 }
