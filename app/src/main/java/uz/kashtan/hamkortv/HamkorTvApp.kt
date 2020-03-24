@@ -40,7 +40,7 @@ class HamkorTvApp : Application(), KodeinAware {
             bind() from singleton { instance<HTVDatabase>().authDao() }
             bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
             bind() from singleton { ApiService(instance()) }
-            bind<StreetNetworkDataSource>() with singleton { StreetNetworkDataSourceImpl(instance()) }
+            bind<QuarterNetworkDataSource>() with singleton { QuarterNetworkDataSourceImpl(instance()) }
             bind<HTVRepository>() with singleton { HTVRepositoryImpl(instance(), instance()) }
         }
 }

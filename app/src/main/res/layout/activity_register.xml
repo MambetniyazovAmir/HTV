@@ -192,13 +192,13 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <LinearLayout
-            android:id="@+id/userHome"
+            android:id="@+id/userApartment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvChooseHome"
+                android:id="@+id/tvChooseApartment"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -230,8 +230,18 @@
         android:layout_height="60dp"
         android:background="@color/buttonColor"
         android:gravity="center"
-        android:text="Регистрация"
+        android:text="@string/registration"
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

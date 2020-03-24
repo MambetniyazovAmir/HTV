@@ -1,4 +1,4 @@
-package uz.kashtan.hamkortv.ui.dialog.quarter
+package uz.kashtan.hamkortv.ui.dialog.house
 
 import android.app.Dialog
 import android.content.Context
@@ -7,13 +7,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.app.basemodule.extensions.onClick
 import kotlinx.android.synthetic.main.dialog_quarter_list.*
 import uz.kashtan.hamkortv.R
-import uz.kashtan.hamkortv.room.models.Quarter
+import uz.kashtan.hamkortv.room.models.House
 
-class QuarterListDialog(private val mContext: Context, private val quarterButtonClickListener: QuarterDialogButtonClickListener, private val list: List<Quarter>) :
-    Dialog(mContext), QuarterDialogItemClickListener {
+class HouseListDialog(
+    private val mContext: Context,
+    private val houseButtonClickListener: HouseDialogButtonClickListener,
+    private val list: List<House>
+) :
+    Dialog(mContext), HouseDialogItemClickListener {
 
-    val adapter: QuarterListAdapter = QuarterListAdapter(this)
-    private lateinit var selectedItem: Quarter
+    val adapter: HouseListAdapter = HouseListAdapter(this)
+    private lateinit var selectedItem: House
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_quarter_list)
@@ -24,12 +28,12 @@ class QuarterListDialog(private val mContext: Context, private val quarterButton
 
         positiveButton.onClick {
             if (::selectedItem.isInitialized) {
-                quarterButtonClickListener.onPositiveButtonClick(selectedItem)
+                houseButtonClickListener.onHousePositiveButtonClick(selectedItem)
             }
         }
 
         negativeButton.onClick {
-            quarterButtonClickListener.onNegativeButtonClick()
+            houseButtonClickListener.onHouseNegativeButtonClick()
         }
     }
 
@@ -37,7 +41,7 @@ class QuarterListDialog(private val mContext: Context, private val quarterButton
         adapter.setData(list)
     }
 
-    override fun onItemClick(item: Quarter, itemPosition: Int) {
+    override fun onItemClick(item: House, itemPosition: Int) {
         selectedItem = item
     }
 }

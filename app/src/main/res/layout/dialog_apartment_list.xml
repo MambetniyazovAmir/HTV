@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="@dimen/dialog_min_width"
@@ -24,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:gravity="center"
-                android:text="@string/select_your_quarter"
+                android:text="@string/selectApartment"
                 android:textColor="@color/white"
                 android:textSize="@dimen/dialog_header_size"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -32,17 +33,16 @@
         </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvQuarter"
+            android:id="@+id/rvApartment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/standard_margin"
-            android:layout_marginTop="28dp"
             android:layout_marginEnd="@dimen/standard_margin"
             android:layout_marginBottom="28dp"
             app:layout_constraintBottom_toTopOf="@id/positiveButton"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flHeader"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/flHeader" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/negativeButton"
@@ -50,9 +50,6 @@
             android:layout_height="36dp"
             android:layout_marginEnd="@dimen/margin_little"
             android:layout_marginBottom="@dimen/margin_little"
-            android:background="@drawable/ripple"
-            android:clickable="true"
-            android:focusable="true"
             android:gravity="center"
             android:minWidth="64dp"
             android:paddingStart="@dimen/margin_little"
@@ -69,9 +66,6 @@
             android:layout_height="36dp"
             android:layout_marginEnd="@dimen/margin_little"
             android:layout_marginBottom="@dimen/margin_little"
-            android:background="@drawable/ripple"
-            android:clickable="true"
-            android:focusable="true"
             android:gravity="center"
             android:minWidth="64dp"
             android:paddingStart="@dimen/margin_little"

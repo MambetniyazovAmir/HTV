@@ -13,5 +13,6 @@ data class House(
     @SerializedName("Code")
     val code: String,
     @SerializedName("CodeQuarter")
-    val codeQuarter: String
+    val codeQuarter: String,
+    var isSelected: Boolean = false
 )
