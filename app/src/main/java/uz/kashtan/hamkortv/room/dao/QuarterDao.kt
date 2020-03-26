@@ -12,9 +12,9 @@ interface QuarterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertToDb(streetOrQuarter: List<Quarter>)
 
-    @Query("SELECT * FROM quarter")
+    @Query("SELECT * FROM quarters")
     fun getAllQuarters(): LiveData<List<Quarter>>
 
-    @Query("SELECT * FROM quarter WHERE id = :id")
-    fun getQuarterById(id: Int)
+    @Query("SELECT * FROM quarters WHERE id = :id")
+    fun getQuarterById(id: Int): Quarter
 }

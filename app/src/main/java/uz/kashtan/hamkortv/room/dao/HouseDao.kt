@@ -16,8 +16,9 @@ interface HouseDao: BaseDao<House> {
     fun getAllHouses(): LiveData<List<House>>
 
     @Query("SELECT * FROM houses WHERE id=:id")
-    fun getHouseById(id: Int)
+    fun getHouseById(id: Int): House
 
     @Query("SELECT * FROM houses WHERE codeQuarter=:codeQuarter")
-    fun getHouseByCodeQuarter(codeQuarter: String)
+    fun getHouseByCodeQuarter(codeQuarter: String): House
+
 }

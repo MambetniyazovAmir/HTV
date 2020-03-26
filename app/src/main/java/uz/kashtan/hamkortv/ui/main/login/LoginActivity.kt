@@ -16,8 +16,6 @@ class LoginActivity : BaseActivity() {
     override val layoutResource: Int
         get() = R.layout.activity_login
 
-
-
     override fun init(savedInstanceState: Bundle?) {
         supportActionBar?.title = getString(R.string.user_page)
         AnimationTemplateUtils.animateStepByStepVisible(

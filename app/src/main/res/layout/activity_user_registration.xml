@@ -7,30 +7,31 @@
     tools:context=".ui.main.CategoryPickActivity">
 
     <LinearLayout
-        android:id="@+id/llAdress"
+        android:id="@+id/llQuarter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="40dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/llUserId"
+        app:layout_constraintBottom_toTopOf="@id/llHouse"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3"
         app:layout_constraintVertical_chainStyle="packed">
 
         <LinearLayout
-            android:id="@+id/userAddress"
+            android:id="@+id/userQuarter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvChooseAddress"
-                android:layout_width="0dp"
+                android:id="@+id/tvChooseQuarter"
+                android:layout_width="310dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:hint="@string/pick_adress"
+                android:hint="Квартал"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textColor="@color/blackish"
@@ -48,23 +49,159 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="4dp"
-            android:background="#56414141" />
+            android:background="@color/colorBlack" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llHouse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/llHome"
+        app:layout_constraintTop_toBottomOf="@id/llQuarter"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <LinearLayout
+            android:id="@+id/userHouse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvChooseHouse"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="Дом"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/blackish"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_next_small" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorBlack" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/llUserId"
+        app:layout_constraintTop_toBottomOf="@id/llHouse"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <LinearLayout
+            android:id="@+id/userApartment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvChooseApartment"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="Квартира"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/blackish"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_next_small" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorBlack" />
+    </LinearLayout>
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/llAdress"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="40dp"-->
+    <!--        android:layout_marginRight="40dp"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/llUserId"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.3"-->
+    <!--        app:layout_constraintVertical_chainStyle="packed">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/userAddress"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="horizontal">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/tvChooseAddress"-->
+    <!--                android:layout_width="0dp"-->
+    <!--                android:layout_height="50dp"-->
+    <!--                android:layout_weight="1"-->
+    <!--                android:gravity="center_vertical"-->
+    <!--                android:hint="@string/pick_adress"-->
+    <!--                android:paddingLeft="8dp"-->
+    <!--                android:paddingRight="8dp"-->
+    <!--                android:textColor="@color/blackish"-->
+    <!--                android:textSize="18dp" />-->
+
+    <!--            <ImageView-->
+    <!--                android:layout_width="10dp"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center_vertical"-->
+    <!--                android:layout_marginRight="16dp"-->
+    <!--                android:src="@drawable/ic_next_small" />-->
+    <!--        </LinearLayout>-->
+
+    <!--        <View-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="1dp"-->
+    <!--            android:layout_marginTop="4dp"-->
+    <!--            android:background="#56414141" />-->
+    <!--    </LinearLayout>-->
 
     <LinearLayout
         android:id="@+id/llUserId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="40dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/llForgotPassword"
-        app:layout_constraintTop_toBottomOf="@+id/llAdress">
+        app:layout_constraintTop_toBottomOf="@+id/llHome"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <EditText
@@ -72,44 +209,39 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:inputType="text"
                 android:backgroundTint="@color/white"
-                android:gravity="center_vertical"
-                android:hint="@string/id_user"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:hint="@string/id_user"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 android:textColor="@color/blackish"
                 android:textSize="18dp" />
-            <!--            <ImageView-->
-            <!--                    android:layout_width="20dp"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:src="@drawable/ic_barcode"-->
-            <!--                    android:layout_gravity="center_vertical"-->
-            <!--                    android:layout_marginRight="16dp"/>-->
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="4dp"
-            android:background="#56414141" />
+            android:background="@color/colorBlack" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/tvLogin"
+        app:layout_constraintBottom_toTopOf="@id/llRegister"
         app:layout_constraintStart_toStartOf="@+id/llUserId"
-        app:layout_constraintTop_toBottomOf="@+id/llUserId">
+        app:layout_constraintTop_toBottomOf="@+id/llUserId"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:gravity="bottom"
             android:paddingLeft="8dp"
@@ -123,15 +255,45 @@
             android:layout_height="1dp"
             android:layout_marginTop="4dp"
             android:background="#56414141" />
+
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:gravity="top"
-            android:textSize="14sp"
             android:paddingStart="8dp"
-            android:textColor="#56414141"
             android:text="Позвонить оператору?"
-            android:layout_height="30dp"/>
+            android:textColor="#56414141"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/tvLogin"
+        app:layout_constraintStart_toStartOf="@id/llForgotPassword"
+        app:layout_constraintTop_toBottomOf="@id/llForgotPassword"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Зарегистрироваться"
+            android:textSize="@dimen/text_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="#56414141" />
     </LinearLayout>
 
     <TextView
@@ -144,4 +306,13 @@
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,20 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import uz.kashtan.hamkortv.room.dao.AuthDao
-import uz.kashtan.hamkortv.room.dao.ChannelDao
-import uz.kashtan.hamkortv.room.dao.LoginDao
-import uz.kashtan.hamkortv.room.models.AuthModel
-import uz.kashtan.hamkortv.room.models.ChannelsModel
-import uz.kashtan.hamkortv.room.models.LoginModel
+import uz.kashtan.hamkortv.room.dao.*
+import uz.kashtan.hamkortv.room.models.*
 
 @Database(
-    entities = [ChannelsModel::class, AuthModel::class, LoginModel::class], version = 1
+    entities = [ChannelsModel::class, AuthModel::class, LoginModel::class, Quarter::class, Apartment::class, House::class], version = 1
 )
 abstract class HTVDatabase : RoomDatabase() {
     abstract fun channelDao(): ChannelDao
     abstract fun authDao(): AuthDao
     abstract fun loginDao(): LoginDao
+    abstract fun houseDao(): HouseDao
+    abstract fun apartmentDao(): ApartmentDao
+    abstract fun quarterDao(): QuarterDao
 
     companion object {
         @Volatile
