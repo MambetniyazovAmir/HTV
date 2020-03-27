@@ -31,6 +31,7 @@ class OfferActivity : BaseActivity() {
         requestNetworkDataSource.downloadedRequest.observe(this, Observer {
             if (it[0].code == "1") {
                 Toast.makeText(this, it[0].message, Toast.LENGTH_SHORT).show()
+                finish()
             } else {
                 Toast.makeText(this, it[0].message, Toast.LENGTH_SHORT).show()
             }
