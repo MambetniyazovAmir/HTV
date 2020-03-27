@@ -13,5 +13,5 @@ interface ChannelDao {
     fun insertToDB(channelsModel: ChannelsModel)
 
     @Query("SELECT * FROM channels")
-    fun getChannels(): LiveData<ChannelsModel>
+    fun getChannels(): ChannelsModel
 }
