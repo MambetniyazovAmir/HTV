@@ -13,7 +13,7 @@ interface QuarterDao {
     fun insertToDb(streetOrQuarter: List<Quarter>)
 
     @Query("SELECT * FROM quarters")
-    fun getAllQuarters(): LiveData<List<Quarter>>
+    fun getAllQuarters(): List<Quarter>
 
     @Query("SELECT * FROM quarters WHERE id = :id")
     fun getQuarterById(id: Int): Quarter

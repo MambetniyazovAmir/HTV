@@ -10,7 +10,7 @@ import uz.kashtan.hamkortv.room.models.Apartment
 interface ApartmentDao: BaseDao<Apartment> {
 
     @Query("SELECT * FROM apartments")
-    fun getAllApartments(): LiveData<List<Apartment>>
+    fun getAllApartments(): List<Apartment>
 
     @Query("SELECT * FROM apartments WHERE id=:id")
     fun getApartmentById(id: Int): Apartment

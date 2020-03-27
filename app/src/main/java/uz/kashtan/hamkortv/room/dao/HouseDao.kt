@@ -13,7 +13,7 @@ import uz.kashtan.hamkortv.room.models.Quarter
 interface HouseDao: BaseDao<House> {
 
     @Query("SELECT * FROM houses")
-    fun getAllHouses(): LiveData<List<House>>
+    fun getAllHouses(): List<House>
 
     @Query("SELECT * FROM houses WHERE id=:id")
     fun getHouseById(id: Int): House

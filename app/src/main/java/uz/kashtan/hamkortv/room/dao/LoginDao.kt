@@ -1,6 +1,5 @@
 package uz.kashtan.hamkortv.room.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,5 +12,5 @@ interface LoginDao {
     fun insertToDB(loginModel: LoginModel)
 
     @Query("SELECT * FROM login")
-    fun getLogin(): LiveData<LoginModel>
+    fun getLogin(): LoginModel
 }

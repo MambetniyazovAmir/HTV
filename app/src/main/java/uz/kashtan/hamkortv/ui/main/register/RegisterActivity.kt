@@ -12,9 +12,6 @@ import uz.kashtan.hamkortv.retrofit.network.ApiService
 import uz.kashtan.hamkortv.retrofit.network.HouseNetworkDataSourceImpl
 import uz.kashtan.hamkortv.retrofit.network.QuarterNetworkDataSourceImpl
 import uz.kashtan.hamkortv.room.HTVDatabase
-import uz.kashtan.hamkortv.room.dao.ApartmentDao
-import uz.kashtan.hamkortv.room.dao.HouseDao
-import uz.kashtan.hamkortv.room.dao.QuarterDao
 import uz.kashtan.hamkortv.room.models.Apartment
 import uz.kashtan.hamkortv.room.models.House
 import uz.kashtan.hamkortv.room.models.Quarter
@@ -25,7 +22,8 @@ import uz.kashtan.hamkortv.ui.dialog.house.HouseListDialog
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterListDialog
 
-class RegisterActivity : BaseActivity(), QuarterDialogButtonClickListener, HouseDialogButtonClickListener,
+class RegisterActivity(private val quarterList: List<Quarter>, private val houseList: List<House>, private val apartmentList: List<Apartment>) :
+    BaseActivity(), QuarterDialogButtonClickListener, HouseDialogButtonClickListener,
     ApartmentDialogButtonClickListener {
 
     private lateinit var quarterDialog: QuarterListDialog
@@ -53,12 +51,12 @@ class RegisterActivity : BaseActivity(), QuarterDialogButtonClickListener, House
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val quarterDao =HTVDatabase.invoke(this).quarterDao()
+        val quarterDao = HTVDatabase.invoke(this).quarterDao()
         val houseDao = HTVDatabase.invoke(this).houseDao()
         val apartmentDao = HTVDatabase.invoke(this).apartmentDao()
-        quarterList.postValue(quarterDao.getAllQuarters().value)
-        houseList.postValue(houseDao.getAllHouses().value)
-        apartmentList.postValue(apartmentDao.getAllApartments().value)
+        quarterList.postValue(quarterDao.getAllQuarters())
+        houseList.postValue(houseDao.getAllHouses())
+        apartmentList.postValue(apartmentDao.getAllApartments())
 //        apiService = ApiService(ConnectivityInterceptorImpl(this.applicationContext))
 //        quarterNetworkDataSource = QuarterNetworkDataSourceImpl(apiService)
 //        houseNetworkDataSource = HouseNetworkDataSourceImpl(apiService)
@@ -145,9 +143,9 @@ class RegisterActivity : BaseActivity(), QuarterDialogButtonClickListener, House
 
     override fun onApartmentPositiveButtonClick(apartment: Apartment) {
         selectedApartment = apartment
+        apartmentDialog.dismiss()
         tvChooseApartment.text = "Квартира: ${apartment.name}"
         apartmentList.value?.forEach { it.isSelected = false }
-        apartmentDialog.dismiss()
     }
 
     override fun onApartmentNegativeButtonClick() {

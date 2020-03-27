@@ -29,6 +29,8 @@ abstract class HTVDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext, HTVDatabase::class.java, "htv.db")
+                .allowMainThreadQueries()
                 .build()
+
     }
 }

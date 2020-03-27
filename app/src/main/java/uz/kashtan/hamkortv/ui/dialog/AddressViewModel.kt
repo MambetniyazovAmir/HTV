@@ -7,5 +7,4 @@ import uz.kashtan.hamkortv.retrofit.repository.HTVRepository
 class AddressViewModel(
     private val htvRepository: HTVRepository
 ) : ViewModel() {
-    val street  by lazyDeferred { htvRepository.getStreet() }
-}
+ }

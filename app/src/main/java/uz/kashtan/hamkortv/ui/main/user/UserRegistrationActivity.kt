@@ -57,7 +57,6 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
     private var filteredHouseList: MutableLiveData<List<House>> = MutableLiveData()
     private var filteredApartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
 
-
     override val layoutResource: Int
         get() = R.layout.activity_user_registration
 
@@ -98,7 +97,7 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
                 codeClient.postValue(it[0])
             }
         })
-        if (quarterDao.getAllQuarters().value.isNullOrEmpty()) {
+        //if (quarterDao.getAllQuarters().isNullOrEmpty()) {
             loading.visibility = View.VISIBLE
             GlobalScope.launch(Dispatchers.Main) {
                 quarterNetworkDataSource.fetchStreets()
@@ -107,31 +106,22 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
             }
             quarterNetworkDataSource.downloadedStreets.observe(this, Observer {
                 quarterList.postValue(it)
-                Executors.newSingleThreadExecutor().execute {
-                    quarterDao.insertToDb(it)
-                }
                 Log.d("quarters", "done")
             })
             houseNetworkDataSource.downloadedHouses.observe(this, Observer { list ->
                 houseList.postValue(list)
-                Executors.newSingleThreadExecutor().execute {
-                    houseDao.insert(list)
-                }
                 Log.d("houses", "done")
             })
             apartmentNetworkDataSource.downloadedApartment.observe(this, Observer { list ->
                 apartmentList.postValue(list)
-                Executors.newSingleThreadExecutor().execute {
-                    apartmentDao.insert(list)
-                }
                 Log.d("apartments", "done")
                 loading.visibility = View.GONE
             })
-        } else {
-            quarterList.postValue(quarterDao.getAllQuarters().value)
-            houseList.postValue(houseDao.getAllHouses().value)
-            apartmentList.postValue(apartmentDao.getAllApartments().value)
-        }
+//        } else {
+//            quarterList.postValue(quarterDao.getAllQuarters())
+//            houseList.postValue(houseDao.getAllHouses())
+//            apartmentList.postValue(apartmentDao.getAllApartments())
+//        }
 
         codeClient.observe(this, Observer {
             val intent = Intent(this, LoginActivity::class.java)
@@ -169,7 +159,7 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
             startActivity(
                 Intent(
                     this,
-                    RegisterActivity()::class.java
+                    RegisterActivity(quarterList.value!!, houseList.value!!, apartmentList)::class.java
                 )
             )
         }
