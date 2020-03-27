@@ -36,6 +36,7 @@ import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterListDialog
 import uz.kashtan.hamkortv.ui.main.login.LoginActivity
 import uz.kashtan.hamkortv.ui.main.register.RegisterActivity
+import uz.kashtan.hamkortv.utils.DataHolder
 import java.util.concurrent.Executors
 
 class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListener,
@@ -106,14 +107,17 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
             }
             quarterNetworkDataSource.downloadedStreets.observe(this, Observer {
                 quarterList.postValue(it)
+                DataHolder.quarterList = it
                 Log.d("quarters", "done")
             })
             houseNetworkDataSource.downloadedHouses.observe(this, Observer { list ->
                 houseList.postValue(list)
+                DataHolder.houseList = list
                 Log.d("houses", "done")
             })
             apartmentNetworkDataSource.downloadedApartment.observe(this, Observer { list ->
                 apartmentList.postValue(list)
+                DataHolder.apartmentList = list
                 Log.d("apartments", "done")
                 loading.visibility = View.GONE
             })
@@ -159,7 +163,7 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
             startActivity(
                 Intent(
                     this,
-                    RegisterActivity(quarterList.value!!, houseList.value!!, apartmentList)::class.java
+                    RegisterActivity::class.java
                 )
             )
         }

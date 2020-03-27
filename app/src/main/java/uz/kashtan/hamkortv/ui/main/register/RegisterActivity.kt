@@ -21,8 +21,9 @@ import uz.kashtan.hamkortv.ui.dialog.house.HouseDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.house.HouseListDialog
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterListDialog
+import uz.kashtan.hamkortv.utils.DataHolder
 
-class RegisterActivity(private val quarterList: List<Quarter>, private val houseList: List<House>, private val apartmentList: List<Apartment>) :
+class RegisterActivity() :
     BaseActivity(), QuarterDialogButtonClickListener, HouseDialogButtonClickListener,
     ApartmentDialogButtonClickListener {
 
@@ -33,12 +34,14 @@ class RegisterActivity(private val quarterList: List<Quarter>, private val house
     private lateinit var selectedQuarter: Quarter
     private lateinit var selectedHouse: House
     private lateinit var selectedApartment: Apartment
+
+    private var quarterList: List<Quarter> = arrayListOf()
+    private var houseList: List<House> = arrayListOf()
+    private var apartmentList: List<Apartment> = arrayListOf()
+
     private lateinit var quarterNetworkDataSource: QuarterNetworkDataSourceImpl
     private lateinit var houseNetworkDataSource: HouseNetworkDataSourceImpl
     private lateinit var apartmentNetworkDataSource: ApartmentNetworkDataSourceImpl
-    private var quarterList: MutableLiveData<List<Quarter>> = MutableLiveData()
-    private var houseList: MutableLiveData<List<House>> = MutableLiveData()
-    private var apartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
     private var filteredHouseList: MutableLiveData<List<House>> = MutableLiveData()
     private var filteredApartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
     override val layoutResource: Int
@@ -51,12 +54,12 @@ class RegisterActivity(private val quarterList: List<Quarter>, private val house
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val quarterDao = HTVDatabase.invoke(this).quarterDao()
-        val houseDao = HTVDatabase.invoke(this).houseDao()
-        val apartmentDao = HTVDatabase.invoke(this).apartmentDao()
-        quarterList.postValue(quarterDao.getAllQuarters())
-        houseList.postValue(houseDao.getAllHouses())
-        apartmentList.postValue(apartmentDao.getAllApartments())
+        quarterList = DataHolder.quarterList
+        houseList = DataHolder.houseList
+        apartmentList = DataHolder.apartmentList
+//        val quarterDao = HTVDatabase.invoke(this).quarterDao()
+//        val houseDao = HTVDatabase.invoke(this).houseDao()
+//        val apartmentDao = HTVDatabase.invoke(this).apartmentDao()
 //        apiService = ApiService(ConnectivityInterceptorImpl(this.applicationContext))
 //        quarterNetworkDataSource = QuarterNetworkDataSourceImpl(apiService)
 //        houseNetworkDataSource = HouseNetworkDataSourceImpl(apiService)
@@ -87,8 +90,8 @@ class RegisterActivity(private val quarterList: List<Quarter>, private val house
 //            loading.visibility = View.GONE
 //        })
         userQuarter.onClick {
-            if (!quarterList.value.isNullOrEmpty()) {
-                quarterDialog = QuarterListDialog(this, this, quarterList.value!!)
+            if (!quarterList.isNullOrEmpty()) {
+                quarterDialog = QuarterListDialog(this, this, quarterList)
                 quarterDialog.show()
             }
         }
@@ -103,7 +106,7 @@ class RegisterActivity(private val quarterList: List<Quarter>, private val house
         }
 
         userApartment.onClick {
-            if (!apartmentList.value.isNullOrEmpty() && ::selectedHouse.isInitialized) {
+            if (!apartmentList.isNullOrEmpty() && ::selectedHouse.isInitialized) {
                 apartmentDialog = ApartmentListDialog(this, this, filteredApartmentList.value!!)
                 apartmentDialog.show()
             } else {
@@ -114,30 +117,30 @@ class RegisterActivity(private val quarterList: List<Quarter>, private val house
 
     override fun onPositiveButtonClick(quarter: Quarter) {
         selectedQuarter = quarter
-        filteredHouseList.value = houseList.value?.filter {
+        filteredHouseList.value = houseList.filter {
             it.codeQuarter == selectedQuarter.code
         }
         tvChooseQuarter.text = "Квартал: ${selectedQuarter.name}"
-        quarterList.value?.forEach { it.isSelected = false }
+        quarterList.forEach { it.isSelected = false }
         quarterDialog.dismiss()
     }
 
     override fun onNegativeButtonClick() {
-        quarterList.value?.forEach { it.isSelected = false }
+        quarterList.forEach { it.isSelected = false }
         quarterDialog.dismiss()
     }
 
     override fun onHousePositiveButtonClick(house: House) {
         selectedHouse = house
         filteredApartmentList.value =
-            apartmentList.value?.filter { it.codeHouse == selectedHouse.code }
+            apartmentList.filter { it.codeHouse == selectedHouse.code }
         tvChooseHouse.text = "Дом: ${selectedHouse.name}"
-        houseList.value?.forEach { it.isSelected = false }
+        houseList.forEach { it.isSelected = false }
         houseDialog.dismiss()
     }
 
     override fun onHouseNegativeButtonClick() {
-        houseList.value?.forEach { it.isSelected = false }
+        houseList.forEach { it.isSelected = false }
         houseDialog.dismiss()
     }
 
@@ -145,11 +148,11 @@ class RegisterActivity(private val quarterList: List<Quarter>, private val house
         selectedApartment = apartment
         apartmentDialog.dismiss()
         tvChooseApartment.text = "Квартира: ${apartment.name}"
-        apartmentList.value?.forEach { it.isSelected = false }
+        apartmentList.forEach { it.isSelected = false }
     }
 
     override fun onApartmentNegativeButtonClick() {
-        apartmentList.value?.forEach { it.isSelected = false }
+        apartmentList.forEach { it.isSelected = false }
         apartmentDialog.dismiss()
     }
 }

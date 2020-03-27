@@ -46,6 +46,7 @@
             android:layout_height="75dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:visibility="gone"
             android:background="@drawable/item_frame"
             android:orientation="horizontal">
 
@@ -352,6 +353,7 @@
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             android:layout_marginBottom="8dp"
             android:background="@drawable/item_frame"
             android:orientation="horizontal">
