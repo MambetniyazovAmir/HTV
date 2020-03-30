@@ -96,6 +96,10 @@ class RegisterActivity() :
             }
         }
 
+        etPhoneNumber.onClick {
+            etPhoneText.setText("+998")
+        }
+
         userHouse.onClick {
             if (::selectedQuarter.isInitialized) {
                 houseDialog = HouseListDialog(this, this, filteredHouseList.value!!)
@@ -120,7 +124,7 @@ class RegisterActivity() :
         filteredHouseList.value = houseList.filter {
             it.codeQuarter == selectedQuarter.code
         }
-        tvChooseQuarter.text = "Квартал: ${selectedQuarter.name}"
+        tvChooseQuarter.text = getString(R.string.quarter)+"${selectedQuarter.name}"
         quarterList.forEach { it.isSelected = false }
         quarterDialog.dismiss()
     }
@@ -134,7 +138,7 @@ class RegisterActivity() :
         selectedHouse = house
         filteredApartmentList.value =
             apartmentList.filter { it.codeHouse == selectedHouse.code }
-        tvChooseHouse.text = "Дом: ${selectedHouse.name}"
+        tvChooseHouse.text =getString(R.string.house) +"${selectedHouse.name}"
         houseList.forEach { it.isSelected = false }
         houseDialog.dismiss()
     }
@@ -147,7 +151,7 @@ class RegisterActivity() :
     override fun onApartmentPositiveButtonClick(apartment: Apartment) {
         selectedApartment = apartment
         apartmentDialog.dismiss()
-        tvChooseApartment.text = "Квартира: ${apartment.name}"
+        tvChooseApartment.text = getString(R.string.apartment)+"${apartment.name}"
         apartmentList.forEach { it.isSelected = false }
     }
 

@@ -55,7 +55,7 @@
     <string name="area">Зона охвата территории ЧП HAMKOR-TV</string>
     <string name="licenses_3">Официальный документ о регистрации юридического лицо</string>
     <string name="value">Сумма</string>
-    <string name="auth">Авторизация</string>
+    <string name="auth">Оплата</string>
     <string name="language">Язык</string>
     <string name="forMonth">За</string>
     <string name="dateOfPayment">Дата оплаты</string>
@@ -70,7 +70,7 @@
     <string name="streetAddress">Квартал</string>
     <string name="houseNumber">Дом</string>
     <string name="homeAddress">Квартира</string>
-    <string name="register">Стать абонентом</string>
+    <string name="register">Регистрация</string>
     <string name="select_your_quarter">Выберите квартал</string>
     <string name="select">Выбрать</string>
     <string name="cancel">Отмена</string>
@@ -78,4 +78,12 @@
     <string name="selectHouse">Выберите дом</string>
     <string name="selectApartment">Выберите квартиру</string>
     <string name="loginPage">Личный кабинет</string>
+    <string name="quarter">Квартал: </string>
+    <string name="house">Дом: </string>
+    <string name="apartment">Квартира: </string>
+    <string name="lastName">Фамилия</string>
+    <string name="firstName">Имя</string>
+    <string name="middleName">Отчество</string>
+    <string name="phoneNumber">Номер телефона</string>
+    <string name="remember">Запомнить</string>
 </resources>

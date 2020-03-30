@@ -31,7 +31,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:hint="Квартал"
+                android:hint="@string/quarter"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textColor="@color/blackish"
@@ -76,7 +76,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:hint="Дом"
+                android:hint="@string/house"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textColor="@color/blackish"
@@ -121,7 +121,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:hint="Квартира"
+                android:hint="@string/apartment"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textColor="@color/blackish"
@@ -195,7 +195,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="40dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/llForgotPassword"
+        app:layout_constraintBottom_toTopOf="@+id/llCheckbox"
         app:layout_constraintTop_toBottomOf="@+id/llHome"
         app:layout_constraintVertical_chainStyle="packed">
 
@@ -232,11 +232,11 @@
         android:id="@+id/llForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/standard_margin"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/llRegister"
-        app:layout_constraintStart_toStartOf="@+id/llUserId"
-        app:layout_constraintTop_toBottomOf="@+id/llUserId"
+        app:layout_constraintBottom_toBottomOf="@id/tvLogin"
+        app:layout_constraintStart_toStartOf="@+id/llCheckbox"
+        app:layout_constraintTop_toBottomOf="@id/llCheckbox"
         app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
@@ -256,26 +256,36 @@
             android:layout_marginTop="4dp"
             android:background="#56414141" />
 
-        <TextView
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@id/llForgotPassword"
+        app:layout_constraintStart_toStartOf="@id/llUserId"
+        app:layout_constraintTop_toBottomOf="@id/llUserId"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <CheckBox
+            android:id="@+id/rememberLogin"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:gravity="top"
-            android:paddingStart="8dp"
-            android:text="Позвонить оператору?"
-            android:textColor="#56414141"
-            android:textSize="14sp" />
+            android:layout_height="wrap_content"
+            android:text="@string/remember" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="40dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@id/tvLogin"
-        app:layout_constraintStart_toStartOf="@id/llForgotPassword"
-        app:layout_constraintTop_toBottomOf="@id/llForgotPassword"
+        app:layout_constraintBottom_toBottomOf="@id/llCheckbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/llCheckbox"
         app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
@@ -286,7 +296,7 @@
             android:gravity="bottom"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:text="Зарегистрироваться"
+            android:text="@string/register"
             android:textSize="@dimen/text_size" />
 
         <View
@@ -312,7 +322,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

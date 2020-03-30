@@ -2,6 +2,7 @@ package uz.kashtan.hamkortv.retrofit.network
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.widget.Toast
 import okhttp3.Interceptor
 import okhttp3.Response
 import uz.kashtan.hamkortv.internal.NoConnectivityException
@@ -13,12 +14,13 @@ class ConnectivityInterceptorImpl(context: Context) :
     private val appContext = context.applicationContext
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        if (!isOnline())
+        if (!isOnline()){
             throw NoConnectivityException()
+        }
         return chain.proceed(chain.request())
     }
 
-    private fun isOnline(): Boolean{
+    fun isOnline(): Boolean{
         val connectivityManager = appContext.getSystemService(Context.CONNECTIVITY_SERVICE)
         as ConnectivityManager
         val networkInfo =connectivityManager.activeNetworkInfo

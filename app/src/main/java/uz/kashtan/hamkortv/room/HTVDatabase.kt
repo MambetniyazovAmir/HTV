@@ -31,6 +31,5 @@ abstract class HTVDatabase : RoomDatabase() {
             Room.databaseBuilder(context.applicationContext, HTVDatabase::class.java, "htv.db")
                 .allowMainThreadQueries()
                 .build()
-
     }
 }
