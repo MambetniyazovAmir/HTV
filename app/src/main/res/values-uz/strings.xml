@@ -21,6 +21,24 @@
 
     <string name="forMonth">Oy</string>
 
+    <string name="register">Registrasiya</string>
+    <string name="select_your_quarter">Dahani tanlang</string>
+    <string name="select">Tanlash</string>
+    <string name="cancel">Bekor</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="selectHouse">Uyni tanlang</string>
+    <string name="selectApartment">Xonadonni tanlang</string>
+    <string name="loginPage">Shaxsiy kabinet</string>
+    <string name="quarter">Daha: </string>
+    <string name="house">Uy: </string>
+    <string name="apartment">Xonadon: </string>
+
+    <string name="lastName">Familiya</string>
+    <string name="firstName">Ism</string>
+    <string name="middleName">Otasining ismi</string>
+    <string name="phoneNumber">Telefon raqami</string>
+    <string name="remember">Eslab qolish</string>
+
     <string name="streetAddress">Daha</string>
     <string name="houseNumber">Uy</string>
     <string name="homeAddress">Xonadon</string>
@@ -45,7 +63,7 @@
         
     <string name="value">Summa</string>
 
-    <string name="auth">Kirish</string>
+    <string name="auth">To\'lov</string>
 
     <string name="language">Til</string>
 

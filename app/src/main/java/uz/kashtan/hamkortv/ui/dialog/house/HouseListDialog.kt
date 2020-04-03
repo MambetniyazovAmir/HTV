@@ -5,7 +5,10 @@ import android.content.Context
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.app.basemodule.extensions.onClick
+import kotlinx.android.synthetic.main.dialog_house_list.*
 import kotlinx.android.synthetic.main.dialog_quarter_list.*
+import kotlinx.android.synthetic.main.dialog_quarter_list.negativeButton
+import kotlinx.android.synthetic.main.dialog_quarter_list.positiveButton
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.room.models.House
 
@@ -20,10 +23,10 @@ class HouseListDialog(
     private lateinit var selectedItem: House
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialog_quarter_list)
+        setContentView(R.layout.dialog_house_list)
         val gridLayoutManager = GridLayoutManager(mContext, 5)
-        rvQuarter.layoutManager = gridLayoutManager
-        rvQuarter.adapter = adapter
+        rvHouse.layoutManager = gridLayoutManager
+        rvHouse.adapter = adapter
         setData()
 
         positiveButton.onClick {

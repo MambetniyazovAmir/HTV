@@ -21,4 +21,6 @@ interface HouseDao: BaseDao<House> {
     @Query("SELECT * FROM houses WHERE codeQuarter=:codeQuarter")
     fun getHouseByCodeQuarter(codeQuarter: String): House
 
+    @Query("SELECT * FROM houses WHERE code = :codeHouse")
+    fun getHouseByCode(codeHouse: String): House
 }
