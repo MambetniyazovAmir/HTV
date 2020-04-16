@@ -1,7 +1,11 @@
 package uz.kashtan.hamkortv.ui.main.history
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import com.app.basemodule.extensions.onClick
 import kotlinx.android.synthetic.main.activity_history.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -23,6 +27,18 @@ class HistoryActivity : BaseActivity() {
     override fun init(savedInstanceState: Bundle?) {
         supportActionBar?.title = getString(R.string.auth)
         enableToolbarBackButton()
+        tvPay.onClick {
+            try {
+                val pm: PackageManager = this.packageManager
+                val launchIntent = pm.getLaunchIntentForPackage("uz.dida.payme")
+                launchIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(launchIntent)
+            } catch (e: Exception){
+                val openUrl = Intent(Intent.ACTION_VIEW)
+                openUrl.data = Uri.parse("https://payme.uz")
+                startActivity(openUrl)
+            }
+        }
     }
 
     var code = ""

@@ -57,12 +57,6 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
     private var apartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
     private var filteredHouseList: MutableLiveData<List<House>> = MutableLiveData()
     private var filteredApartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
-    private val quarterText = "text"
-    private val houseText = "text"
-    private val apartmentText = "text"
-    private val idText = "text"
-    private val CHECKBOX = "checkbox"
-    private val SHARED_PREFS = "sharedPrefs"
     override val layoutResource: Int
         get() = R.layout.activity_user_registration
 
@@ -104,7 +98,6 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
             }
         })
         if (quarterDao.getAllQuarters().isEmpty()) {
-            //loading.visibility = View.VISIBLE
             GlobalScope.launch(Dispatchers.Main) {
                 quarterNetworkDataSource.fetchStreets()
                 houseNetworkDataSource.fetchHouses()
@@ -156,6 +149,9 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
 
         userHouse.onClick {
             if (::selectedQuarter.isInitialized) {
+                filteredHouseList.value = houseList.value?.filter {
+                    it.codeQuarter == selectedQuarter.code
+                }
                 houseDialog = HouseListDialog(this, this, filteredHouseList.value!!)
                 houseDialog.show()
             } else {
@@ -165,6 +161,8 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
 
         userApartment.onClick {
             if (!apartmentList.value.isNullOrEmpty() && ::selectedHouse.isInitialized) {
+                filteredApartmentList.value =
+                    apartmentList.value?.filter { it.codeHouse == selectedHouse.code }
                 apartmentDialog = ApartmentListDialog(this, this, filteredApartmentList.value!!)
                 apartmentDialog.show()
             } else {
@@ -198,16 +196,6 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
         }
 
         tvLogin.setOnClickListener {
-            //            if (Preferences.isSaveData()) {
-//                GlobalScope.launch(Dispatchers.Main) {
-//                    authNetworkDataSource.fetchAuth(
-//                        Preferences.getUserHouse(),
-//                        Preferences.getUserQuarter(),
-//                        Preferences.getUserApartment(),
-//                        Preferences.getUserId()
-//                    )
-//                }
-//            } else {
             GlobalScope.launch(Dispatchers.Main) {
                 authNetworkDataSource.fetchAuth(
                     selectedHouse.name,
@@ -216,7 +204,6 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
                     etChooseUserId.text.toString()
                 )
             }
-//            }
         }
     }
 
@@ -233,22 +220,20 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
 
     private fun loadData() {
         if (Preferences.isSaveData()) {
-            tvChooseQuarter.text = "Квартал: ${Preferences.getUserQuarter()}"
-            tvChooseHouse.text = "Дом: ${Preferences.getUserHouse()}"
-            tvChooseApartment.text = "Квартира: ${Preferences.getUserApartment()}"
-            etChooseUserId.setText(Preferences.getUserId())
-            rememberLogin.isChecked = true
             selectedQuarter = quarterDao.getQuarterByCode(Preferences.getCodeQuarter())
             selectedHouse = houseDao.getHouseByCode(Preferences.getCodeHouse())
             selectedApartment = apartmentDao.getApartmentByCode(Preferences.getCodeApartment())
+            tvChooseQuarter.text = getString(R.string.quarter) + "${selectedQuarter.name}"
+            tvChooseHouse.text = getString(R.string.house) + "${selectedHouse.name}"
+            tvChooseApartment.text = getString(R.string.apartment) + "${selectedApartment.name}"
+            etChooseUserId.setText(Preferences.getUserId())
+            rememberLogin.isChecked = true
         }
     }
 
     override fun onPositiveButtonClick(quarter: Quarter) {
         selectedQuarter = quarter
-        filteredHouseList.value = houseList.value?.filter {
-            it.codeQuarter == selectedQuarter.code
-        }
+
         tvChooseQuarter.text = getString(R.string.quarter) + "${selectedQuarter.name}"
         quarterList.value?.forEach { it.isSelected = false }
         quarterDialog.dismiss()
@@ -261,8 +246,6 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
 
     override fun onHousePositiveButtonClick(house: House) {
         selectedHouse = house
-        filteredApartmentList.value =
-            apartmentList.value?.filter { it.codeHouse == selectedHouse.code }
         tvChooseHouse.text = getString(R.string.house) + "${selectedHouse.name}"
         houseList.value?.forEach { it.isSelected = false }
         houseDialog.dismiss()
@@ -275,7 +258,7 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
 
     override fun onApartmentPositiveButtonClick(apartment: Apartment) {
         selectedApartment = apartment
-        tvChooseApartment.text = getString(R.string.apartment) + "${apartment.name}"
+        tvChooseApartment.text = getString(R.string.apartment) + "${selectedApartment.name}"
         apartmentList.value?.forEach { it.isSelected = false }
         apartmentDialog.dismiss()
     }
@@ -284,11 +267,4 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
         apartmentList.value?.forEach { it.isSelected = false }
         apartmentDialog.dismiss()
     }
-//
-//    @SuppressLint("SetTextI18n")
-//    override fun sendText(kvartal: String, dom: String, kvartira: String) {
-//        this.kvartal = kvartal
-//        this.dom = dom
-//        this.kvartira = kvartira
-//    }
 }

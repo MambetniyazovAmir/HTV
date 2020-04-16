@@ -6,13 +6,15 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 import uz.kashtan.hamkortv.room.models.*
 
 interface ApiService {
     @GET("Channels")
     fun getChannelsAsync(): Deferred<List<ChannelsModel>>
+
+    @PUT("CreateCreditHistory")
+    fun signUpAsync(@Body abonent: Abonent): Deferred<RegisterModel>
 
     @GET("auth")
     fun getAuthAsync(

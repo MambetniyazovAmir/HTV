@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.history.HistoryActivity">
+    tools:context=".ui.main.successregister.SuccessRegisterActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/history_list"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/match_constraint"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/tvPay"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/successRegisterText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/text_size"
+        android:textColor="#414141"
+        android:text="Регистрация прошла успешно\n ваш ID 0000000 для входа в личный кабинет \n Для активации аккаунта оплатите сумму 70800"/>
 
     <TextView
         android:id="@+id/tvPay"
@@ -27,4 +29,5 @@
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,17 +1,21 @@
 package uz.kashtan.hamkortv.ui.main.register
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.app.basemodule.extensions.onClick
 import com.app.basemodule.extensions.toastLN
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.base.BaseActivity
-import uz.kashtan.hamkortv.retrofit.network.ApartmentNetworkDataSourceImpl
 import uz.kashtan.hamkortv.retrofit.network.ApiService
-import uz.kashtan.hamkortv.retrofit.network.HouseNetworkDataSourceImpl
-import uz.kashtan.hamkortv.retrofit.network.QuarterNetworkDataSourceImpl
-import uz.kashtan.hamkortv.room.HTVDatabase
+import uz.kashtan.hamkortv.retrofit.network.ConnectivityInterceptorImpl
+import uz.kashtan.hamkortv.retrofit.network.RegisterNetworkDataSourceImpl
+import uz.kashtan.hamkortv.room.models.Abonent
 import uz.kashtan.hamkortv.room.models.Apartment
 import uz.kashtan.hamkortv.room.models.House
 import uz.kashtan.hamkortv.room.models.Quarter
@@ -21,9 +25,10 @@ import uz.kashtan.hamkortv.ui.dialog.house.HouseDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.house.HouseListDialog
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterListDialog
+import uz.kashtan.hamkortv.ui.main.successregister.SuccessRegisterActivity
 import uz.kashtan.hamkortv.utils.DataHolder
 
-class RegisterActivity() :
+class RegisterActivity :
     BaseActivity(), QuarterDialogButtonClickListener, HouseDialogButtonClickListener,
     ApartmentDialogButtonClickListener {
 
@@ -39,9 +44,8 @@ class RegisterActivity() :
     private var houseList: List<House> = arrayListOf()
     private var apartmentList: List<Apartment> = arrayListOf()
 
-    private lateinit var quarterNetworkDataSource: QuarterNetworkDataSourceImpl
-    private lateinit var houseNetworkDataSource: HouseNetworkDataSourceImpl
-    private lateinit var apartmentNetworkDataSource: ApartmentNetworkDataSourceImpl
+    private lateinit var registerNetworkDataSource: RegisterNetworkDataSourceImpl
+    private lateinit var abonent : Abonent
     private var filteredHouseList: MutableLiveData<List<House>> = MutableLiveData()
     private var filteredApartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
     override val layoutResource: Int
@@ -52,52 +56,28 @@ class RegisterActivity() :
         enableToolbarBackButton()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+          override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         quarterList = DataHolder.quarterList
         houseList = DataHolder.houseList
         apartmentList = DataHolder.apartmentList
-//        val quarterDao = HTVDatabase.invoke(this).quarterDao()
-//        val houseDao = HTVDatabase.invoke(this).houseDao()
-//        val apartmentDao = HTVDatabase.invoke(this).apartmentDao()
-//        apiService = ApiService(ConnectivityInterceptorImpl(this.applicationContext))
-//        quarterNetworkDataSource = QuarterNetworkDataSourceImpl(apiService)
-//        houseNetworkDataSource = HouseNetworkDataSourceImpl(apiService)
-//        apartmentNetworkDataSource = ApartmentNetworkDataSourceImpl(apiService)
-//
-//        loading.visibility = View.VISIBLE
-//
-//        GlobalScope.launch(Dispatchers.Main) {
-//            quarterNetworkDataSource.fetchStreets()
-//        }
-//
-//        GlobalScope.launch(Dispatchers.Main) {
-//            houseNetworkDataSource.fetchHouses()
-//        }
-//
-//        GlobalScope.launch(Dispatchers.Main) {
-//            apartmentNetworkDataSource.fetchApartments()
-//        }
-//
-//        quarterNetworkDataSource.downloadedStreets.observe(this, Observer {
-//            quarterList.postValue(it)
-//        })
-//        houseNetworkDataSource.downloadedHouses.observe(this, Observer { list->
-//            houseList.postValue(list)
-//        })
-//        apartmentNetworkDataSource.downloadedApartment.observe(this, Observer { list->
-//            apartmentList.postValue(list)
-//            loading.visibility = View.GONE
-//        })
+        apiService = ApiService(ConnectivityInterceptorImpl(this.applicationContext))
+        registerNetworkDataSource = RegisterNetworkDataSourceImpl(apiService)
+        registerNetworkDataSource.downloadedRegistration.observe(this, Observer {
+            if (it.message.isNullOrEmpty()) {
+                val intent = Intent(this, SuccessRegisterActivity::class.java)
+                intent.putExtra("userId", it.userId)
+                intent.putExtra("totalSum", it.totalSum)
+                startActivity(intent)
+            }
+            else toastLN(it.message)
+        })
+
         userQuarter.onClick {
             if (!quarterList.isNullOrEmpty()) {
                 quarterDialog = QuarterListDialog(this, this, quarterList)
                 quarterDialog.show()
             }
-        }
-
-        etPhoneNumber.onClick {
-            etPhoneText.setText("+998")
         }
 
         userHouse.onClick {
@@ -117,6 +97,16 @@ class RegisterActivity() :
                 toastLN("Вы еще не выбрали дом")
             }
         }
+
+        tvRegister.onClick {
+            abonent = Abonent(etNameText.text.toString(), etPhoneText.text.toString(), selectedQuarter.code, selectedHouse.code, selectedApartment.code)
+            GlobalScope.launch(Dispatchers.Main) {
+                registerNetworkDataSource.fetchRegister(
+                    abonent
+                )
+            }
+        }
+
     }
 
     override fun onPositiveButtonClick(quarter: Quarter) {
@@ -124,7 +114,7 @@ class RegisterActivity() :
         filteredHouseList.value = houseList.filter {
             it.codeQuarter == selectedQuarter.code
         }
-        tvChooseQuarter.text = getString(R.string.quarter)+"${selectedQuarter.name}"
+        tvChooseQuarter.text = getString(R.string.quarter) + "${selectedQuarter.name}"
         quarterList.forEach { it.isSelected = false }
         quarterDialog.dismiss()
     }
@@ -138,7 +128,7 @@ class RegisterActivity() :
         selectedHouse = house
         filteredApartmentList.value =
             apartmentList.filter { it.codeHouse == selectedHouse.code }
-        tvChooseHouse.text =getString(R.string.house) +"${selectedHouse.name}"
+        tvChooseHouse.text = getString(R.string.house) + "${selectedHouse.name}"
         houseList.forEach { it.isSelected = false }
         houseDialog.dismiss()
     }
@@ -151,7 +141,7 @@ class RegisterActivity() :
     override fun onApartmentPositiveButtonClick(apartment: Apartment) {
         selectedApartment = apartment
         apartmentDialog.dismiss()
-        tvChooseApartment.text = getString(R.string.apartment)+"${apartment.name}"
+        tvChooseApartment.text = getString(R.string.apartment) + "${apartment.name}"
         apartmentList.forEach { it.isSelected = false }
     }
 
