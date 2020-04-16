@@ -1,5 +1,6 @@
 package uz.kashtan.hamkortv.ui.main.register
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -24,6 +25,7 @@ import uz.kashtan.hamkortv.ui.dialog.house.HouseDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.house.HouseListDialog
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterDialogButtonClickListener
 import uz.kashtan.hamkortv.ui.dialog.quarter.QuarterListDialog
+import uz.kashtan.hamkortv.ui.main.successregister.SuccessRegisterActivity
 import uz.kashtan.hamkortv.utils.DataHolder
 
 class RegisterActivity :
@@ -54,7 +56,7 @@ class RegisterActivity :
         enableToolbarBackButton()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+          override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         quarterList = DataHolder.quarterList
         houseList = DataHolder.houseList
@@ -62,7 +64,12 @@ class RegisterActivity :
         apiService = ApiService(ConnectivityInterceptorImpl(this.applicationContext))
         registerNetworkDataSource = RegisterNetworkDataSourceImpl(apiService)
         registerNetworkDataSource.downloadedRegistration.observe(this, Observer {
-            if (!it.message.isNullOrEmpty()) toastLN(it.userId)
+            if (it.message.isNullOrEmpty()) {
+                val intent = Intent(this, SuccessRegisterActivity::class.java)
+                intent.putExtra("userId", it.userId)
+                intent.putExtra("totalSum", it.totalSum)
+                startActivity(intent)
+            }
             else toastLN(it.message)
         })
 

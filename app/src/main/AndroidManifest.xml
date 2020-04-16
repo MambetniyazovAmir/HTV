@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.main.feedback.FeedbackActivity"></activity>
+        <activity android:name=".ui.main.successregister.SuccessRegisterActivity"></activity>
+        <activity android:name=".ui.main.feedback.FeedbackActivity" />
         <activity android:name=".ui.main.register.RegisterActivity" />
         <activity android:name=".ui.main.login.LoginActivity" />
         <activity android:name=".ui.main.offer.OfferActivity" />

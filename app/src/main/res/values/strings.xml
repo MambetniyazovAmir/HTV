@@ -86,4 +86,5 @@
     <string name="middleName">Отчество</string>
     <string name="phoneNumber">Номер телефона</string>
     <string name="remember">Запомнить</string>
+    <string name="pay">Оплатить</string>
 </resources>
