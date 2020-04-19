@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.app.basemodule.extensions.onClick
-import com.app.basemodule.extensions.toastLN
 import kotlinx.android.synthetic.main.activity_login.*
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.base.BaseActivity
