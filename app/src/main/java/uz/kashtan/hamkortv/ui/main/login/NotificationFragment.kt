@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.fragment_notification.*
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.room.models.NotificationModel
 import uz.kashtan.hamkortv.ui.main.login.adapter.NotificationAdapter
+import uz.kashtan.hamkortv.utils.MarginItemDecoration
 
 class NotificationFragment: Fragment(R.layout.fragment_notification) {
 
@@ -19,7 +20,7 @@ class NotificationFragment: Fragment(R.layout.fragment_notification) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         list.adapter = adapter
-        list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        list.addItemDecoration(MarginItemDecoration(8))
         adapter.setData(getData())
         super.onViewCreated(view, savedInstanceState)
     }
