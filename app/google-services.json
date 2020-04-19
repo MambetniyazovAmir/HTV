@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "667692228651",
+    "firebase_url": "https://htvfirebaseproject-886c5.firebaseio.com",
+    "project_id": "htvfirebaseproject-886c5",
+    "storage_bucket": "htvfirebaseproject-886c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667692228651:android:c77679cbc0e3a8a7e50a6e",
+        "android_client_info": {
+          "package_name": "uz.kashtan.hamkortv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667692228651-modq1lb82h60pl9js0i5e0o0rjnqib74.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uz.kashtan.hamkortv",
+            "certificate_hash": "b6c504868cbf36f695184c0b18e2bd7c4aea310c"
+          }
+        },
+        {
+          "client_id": "667692228651-hk22ns4n4fejhck79811mj5obdhjmvjj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_uVFYXaolCHB2UhM2rMeCN9p1nCflBDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667692228651-hk22ns4n4fejhck79811mj5obdhjmvjj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
