@@ -8,7 +8,7 @@ import uz.kashtan.hamkortv.room.dao.*
 import uz.kashtan.hamkortv.room.models.*
 
 @Database(
-    entities = [ChannelsModel::class, AuthModel::class, LoginModel::class, Quarter::class, Apartment::class, House::class], version = 1
+    entities = [ChannelsModel::class, AuthModel::class, LoginModel::class, Quarter::class, Apartment::class, House::class, Requests::class], version = 1
 )
 abstract class HTVDatabase : RoomDatabase() {
     abstract fun channelDao(): ChannelDao
@@ -17,6 +17,7 @@ abstract class HTVDatabase : RoomDatabase() {
     abstract fun houseDao(): HouseDao
     abstract fun apartmentDao(): ApartmentDao
     abstract fun quarterDao(): QuarterDao
+    abstract fun requestsDao(): RequestsDao
 
     companion object {
         @Volatile

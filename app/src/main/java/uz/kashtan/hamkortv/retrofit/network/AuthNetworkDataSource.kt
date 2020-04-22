@@ -10,6 +10,7 @@ interface AuthNetworkDataSource {
         dom: String,
         kvartal: String,
         kvartira: String,
-        id: String
+        id: String,
+        token: String
     )
 }

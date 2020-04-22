@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:id="@+id/requestContainer"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,7 +61,9 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="@dimen/small_padding"
+            android:layout_marginStart="@dimen/small_padding"
             android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:tint="@color/buttonColor"
             app:layout_constraintStart_toStartOf="@id/descriptionText"
             app:layout_constraintTop_toBottomOf="@id/descriptionText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
