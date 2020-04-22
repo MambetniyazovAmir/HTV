@@ -14,7 +14,8 @@
     <string name="quality"> Bizning yutuqlarimiz </string>
         
     <string name="coverage_area">Qamrab olish</string>
-        
+    <string name="pay">To\'lash</string>
+    <string name="notifications">Bildirishnomalar</string>
     <string name="pick_adress"> Manzilni tanlash </string>
         
     <string name="enter"> Kirish </string>

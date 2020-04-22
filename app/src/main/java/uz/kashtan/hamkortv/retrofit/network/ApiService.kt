@@ -1,5 +1,6 @@
 package uz.kashtan.hamkortv.retrofit.network
 
+
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -16,12 +17,16 @@ interface ApiService {
     @PUT("CreateCreditHistory")
     fun signUpAsync(@Body abonent: Abonent): Deferred<RegisterModel>
 
+    @GET("GetRequests")
+    fun getRequestsAsync(@Query("id") codeId: String): Deferred<List<Requests>>
+
     @GET("auth")
     fun getAuthAsync(
         @Query("Dom") dom: String,
         @Query("Kvartal") kvartal: String,
         @Query("Kvartira") kvartira: String,
-        @Query("ID") id: String
+        @Query("ID") id: String,
+        @Query("Token") token: String
     ): Deferred<List<AuthModel>>
 
     @GET("GetQuarters")

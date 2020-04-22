@@ -24,6 +24,11 @@ object Preferences {
     const val CODE_QUARTER: String = "codeQuarter"
     const val CODE_HOUSE: String = "codeHouse"
     const val CODE_APARTMENT: String = "codeApartment"
+    const val TOKEN: String = "token"
+
+    fun setToken(token: String?){
+        pref?.edit()?.putString(TOKEN, token)?.apply()
+    }
 
     fun setUserQuarter(quarter: String) {
         pref?.edit()?.putString(USER_QUARTER, quarter)?.apply()
@@ -57,6 +62,7 @@ object Preferences {
         pref?.edit()?.putString(CODE_APARTMENT, codeApartment)?.apply()
     }
 
+    fun getToken(): String = pref?.getString(TOKEN, "")!!
     fun getUserQuarter(): String = pref?.getString(USER_QUARTER, "")!!
     fun getUserHouse(): String = pref?.getString(USER_HOUSE, "")!!
     fun getUserApartment(): String = pref?.getString(USER_APARTMENT, "")!!

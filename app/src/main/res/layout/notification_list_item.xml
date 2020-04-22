@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/requestContainer"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoImg"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/standard_margin"
+            android:src="@mipmap/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/standard_margin"
+            android:text="16.04.2020:21:08"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_padding"
+            android:paddingStart="@dimen/standard_margin"
+            android:paddingEnd="@dimen/small_padding"
+            android:text="Ваша заявка передана к мастеру"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoImg" />
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_padding"
+            android:paddingStart="@dimen/standard_margin"
+            android:paddingEnd="@dimen/small_padding"
+            android:text="Регистрацию прошел успешно мне нужно подключить ТВ можете отправить мастера? "
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleText" />
+
+        <ImageView
+            android:id="@+id/arrowBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="@dimen/small_padding"
+            android:layout_marginStart="@dimen/small_padding"
+            android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:tint="@color/buttonColor"
+            app:layout_constraintStart_toStartOf="@id/descriptionText"
+            app:layout_constraintTop_toBottomOf="@id/descriptionText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -15,10 +15,10 @@ class AuthNetworkDataSourceImpl(
     override val downloadedAuth: LiveData<List<AuthModel>>
         get() = _downloadedAuth
 
-    override suspend fun fetchAuth(dom: String, kvartal: String, kvartira: String, id: String) {
+    override suspend fun fetchAuth(dom: String, kvartal: String, kvartira: String, id: String, token: String) {
         try {
             val fetchedAuth = apiService
-                .getAuthAsync(dom, kvartal, kvartira, id)
+                .getAuthAsync(dom, kvartal, kvartira, id, token)
                 .await()
             _downloadedAuth.postValue(fetchedAuth)
         } catch (e: NoConnectivityException) {

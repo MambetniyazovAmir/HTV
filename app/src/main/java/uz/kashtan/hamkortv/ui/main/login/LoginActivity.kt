@@ -2,12 +2,15 @@ package uz.kashtan.hamkortv.ui.main.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.app.basemodule.extensions.onClick
 import kotlinx.android.synthetic.main.activity_login.*
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.base.BaseActivity
 import uz.kashtan.hamkortv.ui.main.complaint.ComplaintActivity
 import uz.kashtan.hamkortv.ui.main.history.HistoryActivity
+import uz.kashtan.hamkortv.ui.main.login.notification.NotificationActivity
 import uz.kashtan.hamkortv.ui.main.offer.OfferActivity
 import uz.kashtan.hamkortv.utils.AnimationTemplateUtils
 
@@ -48,8 +51,17 @@ class LoginActivity : BaseActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.notification -> {
+                startActivity(Intent(this, NotificationActivity::class.java))
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

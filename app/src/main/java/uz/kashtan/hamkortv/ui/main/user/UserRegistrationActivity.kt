@@ -1,5 +1,6 @@
 package uz.kashtan.hamkortv.ui.main.user
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
@@ -25,6 +27,7 @@ import uz.kashtan.hamkortv.room.HTVDatabase
 import uz.kashtan.hamkortv.room.dao.ApartmentDao
 import uz.kashtan.hamkortv.room.dao.HouseDao
 import uz.kashtan.hamkortv.room.dao.QuarterDao
+import uz.kashtan.hamkortv.room.dao.RequestsDao
 import uz.kashtan.hamkortv.room.models.Apartment
 import uz.kashtan.hamkortv.room.models.AuthModel
 import uz.kashtan.hamkortv.room.models.House
@@ -52,11 +55,13 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
     private lateinit var quarterNetworkDataSource: QuarterNetworkDataSourceImpl
     private lateinit var houseNetworkDataSource: HouseNetworkDataSourceImpl
     private lateinit var apartmentNetworkDataSource: ApartmentNetworkDataSourceImpl
+    private lateinit var requests: GetRequestsImpl
     private var quarterList: MutableLiveData<List<Quarter>> = MutableLiveData()
     private var houseList: MutableLiveData<List<House>> = MutableLiveData()
     private var apartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
     private var filteredHouseList: MutableLiveData<List<House>> = MutableLiveData()
     private var filteredApartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
+    private var token = Preferences.getToken()
     override val layoutResource: Int
         get() = R.layout.activity_user_registration
 
@@ -71,6 +76,7 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
     private lateinit var apartmentDao: ApartmentDao
     private lateinit var quarterDao: QuarterDao
     private lateinit var houseDao: HouseDao
+    private lateinit var requestsDao: RequestsDao
 
     private var requestCall = 1
 
@@ -79,20 +85,41 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
         apiService = ApiService(
             ConnectivityInterceptorImpl(this.applicationContext)
         )
+        val connectivityInterceptorImpl = ConnectivityInterceptorImpl(this.applicationContext)
         apartmentDao = HTVDatabase.invoke(this).apartmentDao()
         quarterDao = HTVDatabase.invoke(this).quarterDao()
         houseDao = HTVDatabase.invoke(this).houseDao()
+        requestsDao = HTVDatabase.invoke(this).requestsDao()
+
         quarterNetworkDataSource = QuarterNetworkDataSourceImpl(apiService)
         houseNetworkDataSource = HouseNetworkDataSourceImpl(apiService)
         apartmentNetworkDataSource = ApartmentNetworkDataSourceImpl(apiService)
         authNetworkDataSource = AuthNetworkDataSourceImpl(apiService)
+        requests = GetRequestsImpl(apiService)
 
         loadData()
 
+        requests.downloadedRequests.observe(this, Observer {
+            requestsDao.insertToDb(it)
+            GlobalScope.launch(Dispatchers.Main) {
+                authNetworkDataSource.fetchAuth(
+                    selectedHouse.name,
+                    selectedQuarter.name,
+                    selectedApartment.name,
+                    etChooseUserId.text.toString(),
+                    token
+                )
+            }
+        })
+
         authNetworkDataSource.downloadedAuth.observe(this, Observer {
             if (it[0].codeInfo == "0") {
+                loading.visibility = View.GONE
+                tvLogin.isEnabled = true
                 Toast.makeText(this, it[0].message, Toast.LENGTH_SHORT).show()
             } else {
+                loading.visibility = View.GONE
+                tvLogin.isEnabled = true
                 saveData()
                 codeClient.postValue(it[0])
             }
@@ -196,15 +223,34 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
         }
 
         tvLogin.setOnClickListener {
-            GlobalScope.launch(Dispatchers.Main) {
-                authNetworkDataSource.fetchAuth(
-                    selectedHouse.name,
-                    selectedQuarter.name,
-                    selectedApartment.name,
-                    etChooseUserId.text.toString()
-                )
+            if (!connectivityInterceptorImpl.isOnline()) {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("There is no internet connection")
+                builder.setMessage("Do you want to retry again?")
+                builder.setPositiveButton("Yes", { dialogInterface: DialogInterface, i: Int ->
+                    refreshActivity()
+                })
+                builder.setNegativeButton("No", { dialogInterface: DialogInterface, i: Int ->
+                    finish()
+                })
+                builder.setCancelable(false)
+                builder.show()
+            } else {
+                tvLogin.isEnabled = false
+                loading.visibility = View.VISIBLE
+                GlobalScope.launch(Dispatchers.Main) {
+                    requests.fetchRequests(
+                        etChooseUserId.text.toString()
+                    )
+                }
             }
         }
+    }
+
+    private fun refreshActivity(){
+        val intent = intent
+        finish()
+        startActivity(intent)
     }
 
     private fun saveData() {
