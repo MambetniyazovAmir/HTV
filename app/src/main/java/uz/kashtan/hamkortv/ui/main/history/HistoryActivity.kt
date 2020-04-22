@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import com.app.basemodule.extensions.onClick
 import kotlinx.android.synthetic.main.activity_history.*
@@ -54,8 +55,12 @@ class HistoryActivity : BaseActivity() {
                 apiService
             )
         loginNetworkDataSource.downloadedLogin.observe(this, Observer {
+            tvPay.isEnabled = true
+            loading.visibility = View.GONE
             adapter.setData(it)
         })
+        tvPay.isEnabled = false
+        loading.visibility = View.VISIBLE
         GlobalScope.launch(Dispatchers.Main) {
             loginNetworkDataSource.fetch("2020", code)
         }

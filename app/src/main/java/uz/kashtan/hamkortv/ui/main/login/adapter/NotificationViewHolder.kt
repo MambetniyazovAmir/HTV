@@ -19,12 +19,12 @@ class NotificationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
         if (!model.clicked) {
             TransitionManager.beginDelayedTransition(itemView.requestContainer, AutoTransition())
             itemView.descriptionText.maxLines = 2
-            itemView.descriptionText.ellipsize = null
+            itemView.descriptionText.ellipsize = TextUtils.TruncateAt.END
             itemView.arrowBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp)
         } else {
             TransitionManager.beginDelayedTransition(itemView.requestContainer, AutoTransition())
             itemView.descriptionText.maxLines = Int.MAX_VALUE
-            itemView.descriptionText.ellipsize = TextUtils.TruncateAt.END
+            itemView.descriptionText.ellipsize = null
             itemView.arrowBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp)
         }
         itemView.onClick { itemClickListener.onItemClick(position) }
