@@ -14,22 +14,18 @@ class NotificationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     fun populateModel(model: Requests, itemClickListener: OnItemClickListener, position: Int) {
         itemView.titleText.text = model.status
-        itemView.descriptionText.text = model.theme
+        itemView.descriptionText.text = model.theme+model.theme+model.theme+model.theme
         itemView.dateTxt.text = model.date
         if (!model.clicked) {
             TransitionManager.beginDelayedTransition(itemView.requestContainer, AutoTransition())
-            itemView.descriptionText.maxLines = Int.MAX_VALUE
+            itemView.descriptionText.maxLines = 2
             itemView.descriptionText.ellipsize = null
-            itemView.descriptionText.text = model.theme
-            itemView.arrowBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp)
-            model.clicked = true
+            itemView.arrowBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp)
         } else {
             TransitionManager.beginDelayedTransition(itemView.requestContainer, AutoTransition())
-            itemView.descriptionText.maxLines = 2
+            itemView.descriptionText.maxLines = Int.MAX_VALUE
             itemView.descriptionText.ellipsize = TextUtils.TruncateAt.END
-            itemView.descriptionText.text = model.theme
-            itemView.arrowBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp)
-            model.clicked = false
+            itemView.arrowBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp)
         }
         itemView.onClick { itemClickListener.onItemClick(position) }
     }

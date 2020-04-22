@@ -16,9 +16,8 @@ class NotificationAdapter :
         return NotificationViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return models.size
-    }
+    override fun getItemCount(): Int = models.size
+
 
     override fun onBindViewHolder(holder: NotificationViewHolder, position: Int) {
         holder.populateModel(models[position], this, position)
