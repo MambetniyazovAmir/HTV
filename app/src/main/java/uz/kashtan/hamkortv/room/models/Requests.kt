@@ -20,6 +20,9 @@ data class Requests(
     @SerializedName("Status")
     @ColumnInfo(name = "status")
     val status: String,
+    @SerializedName("Title")
+    @ColumnInfo(name = "title")
+    val title: String,
     @SerializedName("Rating")
     @ColumnInfo(name = "rating")
     val rating: String,

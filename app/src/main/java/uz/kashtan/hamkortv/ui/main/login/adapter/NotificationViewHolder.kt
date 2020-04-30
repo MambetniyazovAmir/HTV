@@ -13,7 +13,7 @@ import uz.kashtan.hamkortv.room.models.Requests
 class NotificationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun populateModel(model: Requests, itemClickListener: OnItemClickListener, position: Int) {
-        itemView.titleText.text = model.status
+        itemView.titleText.text = model.title
         itemView.descriptionText.text = model.theme+model.theme+model.theme+model.theme
         itemView.dateTxt.text = model.date
         if (!model.clicked) {

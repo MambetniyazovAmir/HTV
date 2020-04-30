@@ -9,18 +9,16 @@
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="@dimen/match_constraint"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/standard_margin"
         android:layout_marginEnd="@dimen/standard_margin"
-        android:layout_marginBottom="@dimen/small_padding"
-        android:gravity="center"
         android:text="@string/dateOfPayment"
         android:textSize="@dimen/text_size"
-        app:layout_constraintBottom_toTopOf="@id/value_text"
+        app:layout_constraintBottom_toBottomOf="@id/payBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintTop_toTopOf="@id/payBtn" />
 
     <TextView
         android:id="@+id/month"
@@ -30,11 +28,11 @@
         android:layout_marginEnd="@dimen/standard_margin"
         android:gravity="center"
         android:text="@string/forMonth"
+        android:textColor="@color/blackish"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/value_text"
@@ -44,10 +42,21 @@
         android:layout_marginEnd="@dimen/standard_margin"
         android:gravity="center"
         android:text="@string/value"
+        android:textSize="@dimen/text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/month" />
+
+    <TextView
+        android:id="@+id/payBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_margin"
+        android:layout_marginEnd="@dimen/standard_margin"
+        android:text="Не оплачено"
         android:textColor="@color/blackish"
         android:textSize="@dimen/text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/value_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

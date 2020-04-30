@@ -17,7 +17,7 @@ class LoginNetworkDataSourceImpl(
 
     override suspend fun fetch(year: String, codeClient: String) {
         try {
-            val fetchLogin = apiService.getLoginAsync(year, codeClient).await()
+            val fetchLogin = apiService.getLoginAsync(codeClient, year).await()
             _downloadedLogin.postValue(fetchLogin)
         } catch (e: NoConnectivityException) {
             Log.e("Connectivity", "No Internet Connectivity", e)

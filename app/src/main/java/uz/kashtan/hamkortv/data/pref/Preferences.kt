@@ -16,6 +16,9 @@ object Preferences {
             pref?.edit()?.putBoolean(Preferences::firstOpened.name, value)?.apply()
         }
 
+
+    const val LAST_REQUEST_ID: String = "lastRequestId"
+    const val REQUEST_DONE: String = "requestDone"
     const val USER_QUARTER: String = "userQuarter"
     const val USER_HOUSE: String = "userHouse"
     const val USER_APARTMENT: String = "userApartment"
@@ -25,6 +28,14 @@ object Preferences {
     const val CODE_HOUSE: String = "codeHouse"
     const val CODE_APARTMENT: String = "codeApartment"
     const val TOKEN: String = "token"
+
+    fun setLastRequestId(lastRequestId: String){
+        pref?.edit()?.putString(LAST_REQUEST_ID, lastRequestId)?.apply()
+    }
+
+    fun setRequestDone(requestDone: Boolean){
+        pref?.edit()?.putBoolean(REQUEST_DONE, requestDone)?.apply()
+    }
 
     fun setToken(token: String?){
         pref?.edit()?.putString(TOKEN, token)?.apply()
@@ -68,7 +79,9 @@ object Preferences {
     fun getUserApartment(): String = pref?.getString(USER_APARTMENT, "")!!
     fun getUserId(): String = pref?.getString(USER_ID, "")!!
     fun isSaveData(): Boolean = pref?.getBoolean(SAVE_DATA, false)!!
+    fun getRequestDone(): Boolean = pref?.getBoolean(REQUEST_DONE, false)!!
     fun getCodeQuarter(): String = pref?.getString(CODE_QUARTER, "")!!
     fun getCodeHouse(): String = pref?.getString(CODE_HOUSE, "")!!
     fun getCodeApartment(): String = pref?.getString(CODE_APARTMENT, "")!!
+    fun getLastRequestId(): String = pref?.getString(LAST_REQUEST_ID, "")!!
 }

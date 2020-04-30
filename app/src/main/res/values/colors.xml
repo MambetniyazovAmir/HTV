@@ -7,4 +7,16 @@
     <color name="blackish">#212121</color>
     <color name="colorStatus">#5387BF</color>
     <color name="buttonColor">#568AC2</color>
+
+    <color name="commentBackgroundColor">#F0F0F0</color>
+    <color name="buttonColorInDialog">#FF00FF</color>
+    <color name="orange">#FFA500</color>
+    <color name="green">#008000</color>
+
+    <color name="starColor">#45b9ad</color>
+    <color name="noteDescriptionTextColor">#45b9ad</color>
+    <color name="titleTextColor">#FFFFFF</color>
+    <color name="descriptionTextColor">#A6FFFFFF</color>
+    <color name="commentTextColor">#FFFFFF</color>
+    <color name="hintTextColor">#55000000</color>
 </resources>

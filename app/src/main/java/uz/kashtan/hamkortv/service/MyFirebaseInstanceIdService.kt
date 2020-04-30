@@ -12,6 +12,6 @@ class MyFirebaseInstanceIdService: FirebaseInstanceIdService() {
     override fun onTokenRefresh() {
         val token = FirebaseInstanceId.getInstance().token
         Preferences.setToken(token)
-        Log.d(TAG, "Token ${token}")
+        Log.d(TAG, "Token $token")
     }
 }

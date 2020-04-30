@@ -17,6 +17,9 @@ interface ApiService {
     @PUT("CreateCreditHistory")
     fun signUpAsync(@Body abonent: Abonent): Deferred<RegisterModel>
 
+    @POST("SetRating")
+    fun setRating(@Body rating: RatingModel): Deferred<RatingResponse>
+
     @GET("GetRequests")
     fun getRequestsAsync(@Query("id") codeId: String): Deferred<List<Requests>>
 
@@ -38,10 +41,10 @@ interface ApiService {
     @GET("GetApartments")
     fun getApartmentsAsync(): Deferred<List<Apartment>>
 
-    @GET("CreditStories")
+    @GET("GetCreditHistory")
     fun getLoginAsync(
-        @Query("Year") year: String,
-        @Query("CodeClient") codeClient: String
+        @Query("id") codeClient: String,
+        @Query("Year") year: String
     ): Deferred<List<LoginModel>>
 
     @GET("Complaints")

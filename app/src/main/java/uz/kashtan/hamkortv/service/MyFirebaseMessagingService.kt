@@ -15,21 +15,27 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import uz.kashtan.hamkortv.R
+import uz.kashtan.hamkortv.data.pref.Preferences
 import uz.kashtan.hamkortv.ui.main.login.LoginActivity
+import uz.kashtan.hamkortv.ui.main.login.notification.NotificationActivity
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
     val TAG = "FirebaseMessagingService"
     @SuppressLint("LongLogTag")
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        Log.d(TAG, "Dikirim dari: ${remoteMessage.from}")
-
         if (remoteMessage.notification != null) {
             showNotification(remoteMessage.notification?.title, remoteMessage.notification?.body)
+            Preferences.setLastRequestId(remoteMessage.data.getValue("RequestId"))
+            if (remoteMessage.data.getValue("request_done") == "true"){
+                Preferences.setRequestDone(true)
+            } else {
+                Preferences.setRequestDone(false)
+            }
         }
     }
 
     private fun showNotification(title: String?, body: String?) {
-        val intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, NotificationActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
             this, 0, intent,
@@ -44,11 +50,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setAutoCancel(true)
             .setSound(soundUri)
             .setContentIntent(pendingIntent)
+            .setDefaults(Notification.DEFAULT_ALL)
 
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notificationBuilder.setDefaults(Notification.DEFAULT_SOUND)
             val channelId = "Your_channel_id"
             val channel = NotificationChannel(
                 channelId,

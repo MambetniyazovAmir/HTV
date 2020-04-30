@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ac79a428bf57d977514323bc719b0ec5",
+    "identityHash": "4a65849163d87d5ef26027c683666fa0",
     "entities": [
       {
         "tableName": "channels",
@@ -88,7 +88,7 @@
       },
       {
         "tableName": "login",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `code` TEXT NOT NULL, `dateOfTime` TEXT NOT NULL, `message` TEXT NOT NULL, `month` TEXT NOT NULL, `sum` TEXT NOT NULL, `color` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `dateOfTime` TEXT NOT NULL, `month` TEXT NOT NULL, `sum` TEXT NOT NULL, `color` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -97,20 +97,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "code",
-            "columnName": "code",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
             "fieldPath": "dateOfTime",
             "columnName": "dateOfTime",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "message",
-            "columnName": "message",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -270,7 +258,7 @@
       },
       {
         "tableName": "getRequests",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`requestId` TEXT NOT NULL, `date` TEXT NOT NULL, `theme` TEXT NOT NULL, `status` TEXT NOT NULL, `rating` TEXT NOT NULL, `clicked` INTEGER NOT NULL, PRIMARY KEY(`requestId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`requestId` TEXT NOT NULL, `date` TEXT NOT NULL, `theme` TEXT NOT NULL, `status` TEXT NOT NULL, `title` TEXT NOT NULL, `rating` TEXT NOT NULL, `clicked` INTEGER NOT NULL, PRIMARY KEY(`requestId`))",
         "fields": [
           {
             "fieldPath": "requestId",
@@ -293,6 +281,12 @@
           {
             "fieldPath": "status",
             "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -322,7 +316,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ac79a428bf57d977514323bc719b0ec5')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4a65849163d87d5ef26027c683666fa0')"
     ]
   }
 }

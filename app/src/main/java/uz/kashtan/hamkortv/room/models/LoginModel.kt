@@ -9,12 +9,8 @@ import com.google.gson.annotations.SerializedName
 data class LoginModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    @SerializedName("Code")
-    val code: String,
     @SerializedName("DateOfTime")
     val dateOfTime: String,
-    @SerializedName("Message")
-    val message: String,
     @SerializedName("Month")
     val month: String,
     @SerializedName("Sum")

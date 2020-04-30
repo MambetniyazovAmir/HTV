@@ -78,4 +78,6 @@ dependencies {
     implementation "org.kodein.di:kodein-di-framework-android-x:5.2.0"
 
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+    implementation 'com.stepstone.apprating:app-rating:2.3.1'
 }

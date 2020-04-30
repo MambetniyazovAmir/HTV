@@ -165,6 +165,7 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
             intent.putExtra("code", it.code)
             intent.putExtra("photo", it.photo)
             intent.putExtra("name", it.name)
+            intent.putExtra("id", etChooseUserId.text.toString())
             startActivity(intent)
         })
         userQuarter.onClick {
