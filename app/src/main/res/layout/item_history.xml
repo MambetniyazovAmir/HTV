@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/standard_margin"
         android:layout_marginEnd="@dimen/standard_margin"
-        android:text="Не оплачено"
+        android:text="@string/notPaid"
         android:textColor="@color/blackish"
         android:textSize="@dimen/text_size"
         app:layout_constraintHorizontal_chainStyle="spread"

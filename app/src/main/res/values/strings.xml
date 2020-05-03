@@ -88,4 +88,6 @@
     <string name="remember">Запомнить</string>
     <string name="pay">Оплатить</string>
     <string name="notifications">Уведомления</string>
+    <string name="paid">Оплачено</string>
+    <string name="notPaid">Не оплачено</string>
 </resources>

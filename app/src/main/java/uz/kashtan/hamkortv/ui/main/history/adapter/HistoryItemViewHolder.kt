@@ -9,19 +9,23 @@ import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.room.models.LoginModel
 
 class HistoryItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun populateModel(model: LoginModel) {
+    fun populateModel(model: LoginModel, itemClickListener: ItemClickListener) {
         itemView.date.text = model.dateOfTime
         itemView.month.text = model.month
         if (model.color == "Orange") {
             itemView.payBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.orange))
         }
         if (model.color == "Red") {
+            itemView.payBtn.text = itemView.context.getString(R.string.notPaid)
             itemView.payBtn.setTextColor(Color.RED)
         }
         if (model.color == "Green") {
-            itemView.payBtn.text = "Оплачено"
+            itemView.payBtn.text = itemView.context.getString(R.string.paid)
             itemView.payBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.green))
         }
         itemView.value_text.text = model.sum
+        itemView.setOnClickListener {
+            itemClickListener.onItemClick(model)
+        }
     }
 }

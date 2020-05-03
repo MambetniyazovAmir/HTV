@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/tvPay"
         android:layout_width="match_parent"
@@ -24,6 +23,7 @@
         android:background="@color/buttonColor"
         android:gravity="center"
         android:text="@string/pay"
+        android:visibility="gone"
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent" />

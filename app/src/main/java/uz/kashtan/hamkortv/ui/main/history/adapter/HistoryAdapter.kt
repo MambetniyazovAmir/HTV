@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.room.models.LoginModel
 
-class HistoryAdapter: RecyclerView.Adapter<HistoryItemViewHolder>(){
+class HistoryAdapter(private val itemClickListener: ItemClickListener): RecyclerView.Adapter<HistoryItemViewHolder>(){
     private var  models : List<LoginModel> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryItemViewHolder {
@@ -19,7 +19,7 @@ class HistoryAdapter: RecyclerView.Adapter<HistoryItemViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: HistoryItemViewHolder, position: Int) {
-        holder.populateModel(models[position])
+        holder.populateModel(models[position], itemClickListener)
     }
 
     fun setData(models: List<LoginModel>){
