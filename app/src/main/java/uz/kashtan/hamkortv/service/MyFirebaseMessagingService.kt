@@ -10,23 +10,22 @@ import android.content.Intent
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.os.Build
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.data.pref.Preferences
-import uz.kashtan.hamkortv.ui.main.login.LoginActivity
 import uz.kashtan.hamkortv.ui.main.login.notification.NotificationActivity
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
     val TAG = "FirebaseMessagingService"
+
     @SuppressLint("LongLogTag")
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         if (remoteMessage.notification != null) {
             showNotification(remoteMessage.notification?.title, remoteMessage.notification?.body)
             Preferences.setLastRequestId(remoteMessage.data.getValue("RequestId"))
-            if (remoteMessage.data.getValue("request_done") == "true"){
+            if (remoteMessage.data.getValue("request_done") == "true") {
                 Preferences.setRequestDone(true)
             } else {
                 Preferences.setRequestDone(false)
@@ -61,7 +60,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 "Channel human readable title",
                 NotificationManager.IMPORTANCE_HIGH
             )
-            val attributes = AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION).build()
+            val attributes =
+                AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION).build()
             channel.setSound(soundUri, attributes)
             notificationBuilder.setChannelId(channelId)
             notificationManager.createNotificationChannel(channel)

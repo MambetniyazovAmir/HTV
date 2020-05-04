@@ -46,12 +46,12 @@
 
     <string name="dateOfPayment">to\'lov sanasi</string>
     <string name="complaints">Shikoyatlar va takliflar</string>
-    <string name="send">Yuborish</string>
-    <string name="request">Ilovalar</string>
+    <string name="send">Jo\'natish</string>
+    <string name="request">Arizalar</string>
     <string name="user_page">Shaxsiy kabinet</string>
     <string name="theme">Mavzu</string>
     <string name="messageText">Matn</string>
-    <string name="offers">Ilovalar</string>
+    <string name="offers">Arizalar</string>
     <string name="payments">To\'lov</string>
 
     <string name="accessable_chanel"> Mavjud kanallar </string>
