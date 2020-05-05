@@ -74,7 +74,7 @@ class HistoryActivity : BaseActivity(), ItemClickListener {
     override fun onItemClick(model: LoginModel) {
         val dialog = android.app.AlertDialog.Builder(this)
         dialog.setTitle("Общая сумма которая вы должны оплатить составляет")
-        dialog.setMessage("25000")
+        dialog.setMessage(model.sumToPay)
         dialog.setPositiveButton("Оплатить") { _: DialogInterface, _: Int ->
             try {
                 val pm: PackageManager = this.packageManager

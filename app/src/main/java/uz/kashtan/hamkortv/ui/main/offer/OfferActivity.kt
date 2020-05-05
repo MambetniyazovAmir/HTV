@@ -3,6 +3,7 @@ package uz.kashtan.hamkortv.ui.main.offer
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_offer.*
@@ -15,6 +16,7 @@ import uz.kashtan.hamkortv.retrofit.network.ApiService
 import uz.kashtan.hamkortv.retrofit.network.ConnectivityInterceptorImpl
 import uz.kashtan.hamkortv.retrofit.network.RequestNetworkDataSourceImpl
 import uz.kashtan.hamkortv.ui.dialog.HelpDialog
+import java.lang.Exception
 
 
 class OfferActivity : BaseActivity() {
@@ -49,10 +51,14 @@ class OfferActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val photoStr = intent.getStringExtra("photo")
-        val imageBytes = Base64.decode(photoStr, Base64.DEFAULT)
-        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-        photoEmployee.setImageBitmap(decodedImage)
+        try {
+            val photoStr = intent.getStringExtra("photo")
+            val imageBytes = Base64.decode(photoStr, Base64.DEFAULT)
+            val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+            photoEmployee.setImageBitmap(decodedImage)
+        } catch (e: Exception){
+            Log.d("photo of master", e.message)
+        }
 
         info.setOnClickListener {
             val dialog = HelpDialog(this)

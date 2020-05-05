@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4a65849163d87d5ef26027c683666fa0",
+    "identityHash": "8a12f645bd984252a775f52001891fc7",
     "entities": [
       {
         "tableName": "channels",
@@ -88,7 +88,7 @@
       },
       {
         "tableName": "login",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `dateOfTime` TEXT NOT NULL, `month` TEXT NOT NULL, `sum` TEXT NOT NULL, `color` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `dateOfTime` TEXT NOT NULL, `month` TEXT NOT NULL, `sum` TEXT NOT NULL, `color` TEXT NOT NULL, `sumToPay` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -117,6 +117,12 @@
           {
             "fieldPath": "color",
             "columnName": "color",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sumToPay",
+            "columnName": "sumToPay",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -316,7 +322,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4a65849163d87d5ef26027c683666fa0')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8a12f645bd984252a775f52001891fc7')"
     ]
   }
 }

@@ -9,6 +9,9 @@ interface RequestsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertToDb(requests: List<Requests>)
 
+    @Delete
+    fun deleteAll(data: List<Requests>)
+
     @Query("SELECT * FROM getRequests")
     fun getRequests(): List<Requests>
 

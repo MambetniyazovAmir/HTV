@@ -57,7 +57,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             val channelId = "Your_channel_id"
             val channel = NotificationChannel(
                 channelId,
-                "Channel human readable title",
+                "HamkorTv",
                 NotificationManager.IMPORTANCE_HIGH
             )
             val attributes =

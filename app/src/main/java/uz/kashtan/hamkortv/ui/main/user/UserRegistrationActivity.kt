@@ -100,16 +100,17 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
         loadData()
 
         requests.downloadedRequests.observe(this, Observer {
+            requestsDao.deleteAll(requestsDao.getRequests())
             requestsDao.insertToDb(it)
-            GlobalScope.launch(Dispatchers.Main) {
-                authNetworkDataSource.fetchAuth(
-                    selectedHouse.name,
-                    selectedQuarter.name,
-                    selectedApartment.name,
-                    etChooseUserId.text.toString(),
-                    token
-                )
-            }
+                GlobalScope.launch(Dispatchers.Main) {
+                    authNetworkDataSource.fetchAuth(
+                        selectedHouse.name,
+                        selectedQuarter.name,
+                        selectedApartment.name,
+                        etChooseUserId.text.toString(),
+                        token
+                    )
+                }
         })
 
         authNetworkDataSource.downloadedAuth.observe(this, Observer {
@@ -237,12 +238,16 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
                 builder.setCancelable(false)
                 builder.show()
             } else {
-                tvLogin.isEnabled = false
-                loading.visibility = View.VISIBLE
-                GlobalScope.launch(Dispatchers.Main) {
-                    requests.fetchRequests(
-                        etChooseUserId.text.toString()
-                    )
+                if (::selectedApartment.isInitialized && etChooseUserId.text.isNotEmpty()){
+                    tvLogin.isEnabled = false
+                    loading.visibility = View.VISIBLE
+                    GlobalScope.launch(Dispatchers.Main) {
+                        requests.fetchRequests(
+                            etChooseUserId.text.toString()
+                        )
+                    }
+                } else {
+                    toastLN("Поля заполнены неправильно")
                 }
             }
         }
