@@ -285,7 +285,6 @@ class UserRegistrationActivity : BaseActivity(), QuarterDialogButtonClickListene
 
     override fun onPositiveButtonClick(quarter: Quarter) {
         selectedQuarter = quarter
-
         tvChooseQuarter.text = getString(R.string.quarter) + "${selectedQuarter.name}"
         quarterList.value?.forEach { it.isSelected = false }
         quarterDialog.dismiss()

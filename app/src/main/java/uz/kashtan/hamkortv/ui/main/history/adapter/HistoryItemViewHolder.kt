@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.jakewharton.rxbinding2.view.enabled
 import kotlinx.android.synthetic.main.item_history.view.*
 import uz.kashtan.hamkortv.R
 import uz.kashtan.hamkortv.room.models.LoginModel
@@ -21,6 +22,7 @@ class HistoryItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         }
         if (model.color == "Green") {
             itemView.payBtn.text = itemView.context.getString(R.string.paid)
+            itemView.isEnabled = false
             itemView.payBtn.setTextColor(ContextCompat.getColor(itemView.context, R.color.green))
         }
         itemView.value_text.text = model.sum

@@ -2,6 +2,7 @@ package uz.kashtan.hamkortv.ui.main.register
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.isEmpty
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.app.basemodule.extensions.onClick
@@ -45,7 +46,7 @@ class RegisterActivity :
     private var apartmentList: List<Apartment> = arrayListOf()
 
     private lateinit var registerNetworkDataSource: RegisterNetworkDataSourceImpl
-    private lateinit var abonent : Abonent
+    private lateinit var abonent: Abonent
     private var filteredHouseList: MutableLiveData<List<House>> = MutableLiveData()
     private var filteredApartmentList: MutableLiveData<List<Apartment>> = MutableLiveData()
     override val layoutResource: Int
@@ -56,7 +57,7 @@ class RegisterActivity :
         enableToolbarBackButton()
     }
 
-          override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         quarterList = DataHolder.quarterList
         houseList = DataHolder.houseList
@@ -69,8 +70,7 @@ class RegisterActivity :
                 intent.putExtra("userId", it.userId)
                 intent.putExtra("totalSum", it.totalSum)
                 startActivity(intent)
-            }
-            else toastLN(it.message)
+            } else toastLN(it.message)
         })
 
         userQuarter.onClick {
@@ -99,14 +99,27 @@ class RegisterActivity :
         }
 
         tvRegister.onClick {
-            abonent = Abonent(etNameText.text.toString(), etPhoneText.text.toString(), selectedQuarter.code, selectedHouse.code, selectedApartment.code)
-            GlobalScope.launch(Dispatchers.Main) {
-                registerNetworkDataSource.fetchRegister(
-                    abonent
-                )
-            }
+           if (::selectedApartment.isInitialized && !etNameText.text.isNullOrEmpty() && !etPhoneText.text.isNullOrEmpty()) {
+               if (agreeCheckBox.isChecked) {
+                   abonent = Abonent(
+                       etNameText.text.toString(),
+                       etPhoneText.text.toString(),
+                       selectedQuarter.code,
+                       selectedHouse.code,
+                       selectedApartment.code
+                   )
+                   GlobalScope.launch(Dispatchers.Main) {
+                       registerNetworkDataSource.fetchRegister(
+                           abonent
+                       )
+                   }
+               } else {
+                   toastLN("Пожалуйста ознакомтесь с договор оферта")
+               }
+           } else {
+               toastLN("Поля заполнены неправильно")
+           }
         }
-
     }
 
     override fun onPositiveButtonClick(quarter: Quarter) {

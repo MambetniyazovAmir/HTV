@@ -90,4 +90,5 @@
     <string name="notifications">Уведомления</string>
     <string name="paid">Оплачено</string>
     <string name="notPaid">Не оплачено</string>
+    <string name="agree">Согласен с условиями договор оферты</string>
 </resources>
